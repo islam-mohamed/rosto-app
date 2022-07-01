@@ -1,0 +1,26 @@
+.sectionheading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5rem auto 4rem auto;
+}
+.sectionheading h2 {
+  font-size: 3.2rem;
+  text-transform: uppercase;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem 2.5rem;
+}
+.sectionheading p {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+@media screen and (max-width: 370px) {
+  .sectionheading h2 {
+    font-size: 2rem;
+  }
+}

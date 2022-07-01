@@ -1,0 +1,118 @@
+/*
+********************************
+Footer
+********************************
+*/
+
+.rostomapp {
+  width: 100%;
+  height: 35rem;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-bg);
+  background: url(../public/images/svg/footer-delivery.png) 0 0/100% no-repeat;
+  padding: 2rem 0;
+}
+.mainlogo {
+  margin: 1rem 4rem 1rem 0px;
+}
+.rostomapp h2 {
+  font-size: 3.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  /* margin-top: 1rem; */
+  margin-bottom: 0.5rem;
+}
+.rostomapp p {
+  font-size: 1.6rem;
+  font-weight: 100;
+  margin-bottom: 2rem;
+}
+.androidios {
+  display: flex;
+  gap: 2rem;
+}
+.footertop {
+  width: 100%;
+  background-color: var(--color-primary);
+}
+.footertopcontent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 0;
+}
+.footermenu {
+  margin-bottom: 1.5rem;
+}
+.footermenu ul {
+  display: flex;
+}
+.footermenu ul li {
+  list-style: none;
+  margin-right: 2.5rem;
+}
+.footermenu ul li a {
+  font-size: 1.6rem;
+  font-weight: 400;
+  text-transform: capitalize;
+  color: var(--color-white);
+}
+.footersocialicons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footersocialicons p {
+  font-size: 1.6rem;
+  font-weight: 100;
+  color: var(--color-white);
+  margin-right: 4rem;
+}
+.socialicons {
+  display: flex;
+}
+.socialiconimg {
+  margin-right: 1rem;
+}
+.footerbottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+}
+.footerbottom p {
+  font-size: 1.6rem;
+  font-weight: 100;
+  text-transform: capitalize;
+  color: var(--color-text);
+  text-align: center;
+}
+.footerbottom p span a {
+  font-weight: 400;
+  color: var(--color-primary);
+}
+/*
+  ********************************
+  Footer Media Query
+  ********************************
+  */
+@media screen and (max-width: 992px) {
+  .footertopcontent {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media screen and (max-width: 500px) {
+  .footermenu ul,
+  .footersocialicons {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+  }
+  .footersocialicons p {
+    margin-right: 0;
+  }
+}

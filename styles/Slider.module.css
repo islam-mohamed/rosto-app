@@ -1,0 +1,45 @@
+.slidercontainer {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+.slideleft,
+.slideright {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 5rem;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+  box-shadow: var(--shadow-primary);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 5;
+}
+.slideleft {
+  justify-content: flex-start;
+  left: 0;
+  margin-left: 2rem;
+  cursor: pointer;
+}
+.slideright {
+  justify-content: flex-end;
+  right: 0;
+  margin-right: 2rem;
+}
+.sliderswrapper {
+  position: relative;
+  display: flex;
+  width: 400vw;
+  height: auto;
+  overflow: hidden;
+}
+
+.sliderwrapper {
+  width: 100vw;
+  height: auto;
+  transition: all 1s ease-in-out;
+  z-index: 1;
+}

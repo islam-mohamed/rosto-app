@@ -1,16 +1,89 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+/* @charset "UTF-8"; */
+/*!
+Author: Islam Mohamed
+Author URI: http://islamabdelsalam.com/
+Description: Rosto Egypt is an italian pizza & pasta restaurant. It delivers best of italian cuisine. 
+*/
+
+/*
+********************************
+------- General Rules ----------
+********************************
+*/
+
+/* ************ Colors ************ */
+
+:root {
+  --color-primary: #e35e3a;
+  --color-text: #231f20;
+  --color-white: #fff;
+  --color-bg: #f0efef;
+  --shadow-primary: 0 0 10px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* ************ GENERAL CSS ************ */
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+html {
+  font-size: 62.5%;
 }
 
 a {
-  color: inherit;
   text-decoration: none;
 }
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+@media screen and (min-width: 1200px) {
+  .container {
+    width: 1200px;
+  }
+}
+.stretch {
+  width: 100%;
+}
+/* ************ TYPOGRAPHY ************ */
+body,
+h1,
+h2,
+h3,
+h4,
+p {
+  font-family: "Open Sans", sans-serif;
+}
+h1 {
+  font-size: 3.5rem;
+}
+h2 {
+  font-size: 2.5rem;
+}
+h3 {
+  font-size: 1.6rem;
+}
+p {
+  font-size: 1.6rem;
+}
 
-* {
-  box-sizing: border-box;
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  display: none;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-text);
+  z-index: 998;
 }

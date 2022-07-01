@@ -1,0 +1,322 @@
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+@media screen and (min-width: 1200px) {
+  .container {
+    width: 1200px;
+  }
+}
+.stretch {
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+}
+.headertop {
+  display: flex;
+  justify-content: space-between;
+  background: url(.//../public/images/svg/top-header-pattern.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 10rem;
+}
+.headerleft {
+  display: flex;
+}
+.mainlogo {
+  margin: 1rem 4rem 1rem 0px;
+}
+.topheaderlinks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.signin,
+.register,
+.location {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 2rem;
+}
+.signinimg,
+.registerimg,
+.locationimg {
+  margin-right: 0.5rem;
+}
+.signin p,
+.register p,
+.location p {
+  font-size: 1.6rem;
+  color: var(--color-text);
+  transition: all 0.3s ease-in-out;
+}
+.signin:hover p,
+.register:hover p,
+.location:hover p {
+  color: var(--color-primary);
+}
+.headerright {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hotnumber {
+  margin: 2rem 2rem 2rem 0;
+}
+.headerright a {
+  font-family: "Cairo", sans-serif;
+  font-size: 1.6rem;
+  padding: 0.2rem 2.5rem;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border-radius: 0.5rem;
+  transition: all 0.3s ease-in-out;
+}
+.headerright a:hover {
+  box-shadow: var(--shadow-primary);
+}
+.navcontainer {
+  background-color: var(--color-primary);
+}
+.headernav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: url(.//../public/images/svg/bottom-header-pattern.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 5rem;
+}
+.nav ul li {
+  list-style: none;
+  display: inline-block;
+}
+.nav ul li a {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--color-white);
+  text-transform: uppercase;
+  padding: 1.7rem 2.5rem;
+  transition: all 0.3s ease-in-out;
+}
+.nav ul li a:hover {
+  color: var(--color-primary);
+  background-color: var(--color-white);
+}
+.cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cartimg {
+  margin-right: 0.5rem;
+}
+.cart p {
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-white);
+}
+
+/*
+********************************
+------- Pc Header Media Query -----------------
+********************************
+*/
+@media screen and (max-width: 992px) {
+  .header {
+    display: none;
+  }
+}
+/*
+********************************
+---- Tablet & Mobile Header ----
+********************************
+*/
+.mobileheader {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  width: 100%;
+  padding: 2rem;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-primary);
+  border-bottom-left-radius: 1.5rem;
+  border-bottom-right-radius: 1.5rem;
+}
+.menuicon {
+  cursor: pointer;
+}
+.menuicon > span {
+  width: 23px;
+  display: block;
+  background: var(--color-text);
+  height: 3px;
+  margin-bottom: 5px;
+  border-radius: 1px;
+}
+
+.menuicon > span:nth-child(2) {
+  width: 15px;
+}
+.mobilelogo {
+  height: 80px;
+}
+
+.mcart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.mcartimg {
+  margin-right: 0.5rem;
+}
+.mcart a {
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.hamburgermenu {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 80%;
+  top: 0;
+  background: url(.//../public/images/svg/product-pattern.png);
+  background-color: var(--color-white);
+  border-right: 4px solid var(--color-primary);
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  overflow: scroll;
+  scroll-behavior: smooth;
+  z-index: 999;
+}
+.hamburgertop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.5rem;
+}
+.changelang a {
+  font-family: "Cairo", sans-serif;
+  font-size: 1.6rem;
+  padding: 0.2rem 2.5rem;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border-radius: 0.5rem;
+  transition: all 0.3s ease-in-out;
+}
+.changelang a:hover {
+  box-shadow: var(--shadow-primary);
+}
+.tophamburgermenu {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5rem;
+  gap: 1rem;
+}
+.hlogo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2.5rem;
+}
+.hsignin a {
+  display: flex;
+  justify-content: center;
+  font-size: 1.6rem;
+  padding: 1rem 2.5rem;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border-radius: 0.5rem;
+  transition: all 0.3s ease-in-out;
+}
+.hsignin a:hover {
+  filter: brightness(90%);
+}
+.hregister a {
+  display: flex;
+  justify-content: center;
+  font-size: 1.6rem;
+  padding: 1rem 2.5rem;
+  border: 1px solid var(--color-primary);
+  background-color: var(--color-white);
+  color: var(--color-primary);
+  border-radius: 0.5rem;
+  transition: all 0.3s ease-in-out;
+}
+.hregister a:hover {
+  filter: brightness(95%);
+}
+.menulisth2 {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-text);
+}
+.menulistcontainer {
+  display: grid;
+  gap: 1rem;
+  padding: 0 2.5rem;
+}
+.menulistcard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--color-white);
+  padding: 1rem;
+  border: 1px solid var(--color-primary);
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-primary);
+  cursor: pointer;
+}
+.menulistcard:hover {
+  filter: grayscale(100%);
+}
+.menulistcard:active {
+  filter: grayscale(100%);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+.menulistcard img {
+  width: 2.5rem;
+}
+.menulistcard p {
+  font-size: 1.6rem;
+  font-weight: 100;
+  color: var(--color-text);
+}
+.hotnumber {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  padding: 2rem;
+}
+.hotnumber img {
+  width: 50%;
+}
+
+@media screen and (max-width: 992px) {
+  .mobileheader {
+    display: flex;
+    z-index: 10;
+  }
+}
+@media screen and (min-width: 992px) {
+  .hamburgermenu {
+    display: none;
+  }
+}

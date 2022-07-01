@@ -1,0 +1,28 @@
+/*
+********************************
+Deals Section
+********************************
+*/
+.dealssection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--color-bg);
+  padding-bottom: 5rem;
+}
+.deals {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+/*
+  ********************************
+  Deals Section Media Query
+  ********************************
+  */
+@media screen and (max-width: 992px) {
+  .deals {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+}

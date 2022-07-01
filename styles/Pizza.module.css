@@ -1,0 +1,34 @@
+/*
+********************************
+Pizza & pasta Section
+********************************
+*/
+.pizzapastasection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: url(./../public/images/svg/product-pattern.png);
+  background-repeat: repeat;
+  padding-bottom: 5rem;
+}
+.pizzapasta {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+/*
+  ********************************
+  Pizza & pasta Section Media Query
+  ********************************
+  */
+@media screen and (max-width: 1200px) {
+  .pizzapasta {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (max-width: 992px) {
+  .pizzapasta {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+}
