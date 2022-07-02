@@ -6,13 +6,16 @@ import PizzaIcon from "./../../public/images/svg/pizza.svg";
 
 const Product = () => {
   const [size, setSize] = useState(0);
-  const [dI, setDI] = useState(0);
-  const [eC, setEC] = useState(0);
-  const [eG, setEG] = useState(0);
-  const [eT, setET] = useState(0);
-  const [quantity, setQuantity] = useState(1);
-
+  const [addIngredients, setAddIngredients] = useState({
+    dI: 0,
+    eC: 0,
+    eG: 0,
+    eT: 0,
+  });
+  const { dI, eC, eG, eT } = addIngredients;
   console.log(dI, eC, eG, eT);
+
+  const [quantity, setQuantity] = useState(1);
 
   const product = {
     id: "pizza01",
@@ -22,26 +25,32 @@ const Product = () => {
     price: [85, 111, 129],
   };
 
-  const handleChangeDI = (event) => {
-    event.target.checked & (event.target.id === "d-ingredient")
-      ? setDI(25.0)
-      : setDI(0);
+  const handleChange = (event) => {
+    const { checked, id } = event.target;
+
+    if (id === "d-ingredient") {
+      checked
+        ? setAddIngredients((prvState) => ({ ...prvState, dI: 25.0 }))
+        : setAddIngredients((prvState) => ({ ...prvState, dI: 0.0 }));
+    }
+    if (id === "e-cheese") {
+      checked
+        ? setAddIngredients((prvState) => ({ ...prvState, eC: 20.0 }))
+        : setAddIngredients((prvState) => ({ ...prvState, eC: 0.0 }));
+    }
+    if (id === "e-garlic") {
+      checked
+        ? setAddIngredients((prvState) => ({ ...prvState, eG: 10.0 }))
+        : setAddIngredients((prvState) => ({ ...prvState, eG: 0.0 }));
+    }
+
+    if (id === "e-tomato") {
+      checked
+        ? setAddIngredients((prvState) => ({ ...prvState, eT: 10.0 }))
+        : setAddIngredients((prvState) => ({ ...prvState, eT: 0.0 }));
+    }
   };
-  const handleChangeEC = (event) => {
-    event.target.checked & (event.target.id === "e-cheese")
-      ? setEC(20.0)
-      : setEC(0);
-  };
-  const handleChangeEG = (event) => {
-    event.target.checked & (event.target.id === "e-garlic")
-      ? setEG(10.0)
-      : setEG(0);
-  };
-  const handleChangeET = (event) => {
-    event.target.checked & (event.target.id === "e-tomato")
-      ? setET(10.0)
-      : setET(0);
-  };
+
   const handleQuantity = (event) => {
     setQuantity(event.target.value);
   };
@@ -84,7 +93,7 @@ const Product = () => {
                 <input
                   type="checkbox"
                   id="d-ingredient"
-                  onChange={handleChangeDI}
+                  onChange={handleChange}
                 />
                 <span className={styles.checkMark}></span>
                 <span className={styles.checkBoxLabel}>
@@ -92,33 +101,21 @@ const Product = () => {
                 </span>
               </label>
               <label className={styles.checkBoxContainer} htmlFor="e-cheese">
-                <input
-                  type="checkbox"
-                  id="e-cheese"
-                  onChange={handleChangeEC}
-                />
+                <input type="checkbox" id="e-cheese" onChange={handleChange} />
                 <span className={styles.checkMark}></span>
                 <span className={styles.checkBoxLabel}>
                   Extra Cheese ( <b>+ EGP 20.00</b> )
                 </span>
               </label>
               <label className={styles.checkBoxContainer} htmlFor="e-garlic">
-                <input
-                  type="checkbox"
-                  id="e-garlic"
-                  onChange={handleChangeEG}
-                />
+                <input type="checkbox" id="e-garlic" onChange={handleChange} />
                 <span className={styles.checkMark}></span>
                 <span className={styles.checkBoxLabel}>
                   Extra Garlic Sauce ( <b>+ EGP 10.00</b> )
                 </span>
               </label>
               <label className={styles.checkBoxContainer} htmlFor="e-tomato">
-                <input
-                  type="checkbox"
-                  id="e-tomato"
-                  onChange={handleChangeET}
-                />
+                <input type="checkbox" id="e-tomato" onChange={handleChange} />
                 <span className={styles.checkMark}></span>
                 <span className={styles.checkBoxLabel}>
                   Extra Tomato Sauce ( <b>+ EGP 10.00</b> )
