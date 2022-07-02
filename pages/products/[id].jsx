@@ -13,7 +13,6 @@ const Product = () => {
     eT: 0,
   });
   const { dI, eC, eG, eT } = addIngredients;
-  console.log(dI, eC, eG, eT);
 
   const [quantity, setQuantity] = useState(1);
 

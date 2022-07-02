@@ -2,8 +2,10 @@ import React from "react";
 import styles from "./../styles/Pizza.module.css";
 import SectionHeading from "./SectionHeading";
 import ProductCard from "./ProductCard";
+import data from "../api/data";
 
-const Pizza = () => {
+const Pizza = ({ products }) => {
+  console.log(products);
   return (
     <div className="stretch">
       <div className={styles.pizzapastasection}>

@@ -1,11 +1,11 @@
 import Head from "next/head";
-import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Slider from "../components/Slider";
 import SeparatorSlider from "../components/SeparatorSlider";
 import Separator from "../components/SeparatorSlider";
 import Deals from "../components/Deals";
 import Pizza from "../components/Pizza";
+import data from "../api/data";
 
 export default function Home() {
   return (
@@ -29,7 +29,7 @@ export default function Home() {
       <SeparatorSlider />
       <Deals />
       <Separator />
-      <Pizza />
+      <Pizza products={data} />
     </div>
   );
 }

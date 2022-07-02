@@ -17,6 +17,7 @@ import StarterIcon from ".//../public/images/svg/starters.svg";
 import SaladsIcon from ".//../public/images/svg/salad.svg";
 import DessertIcon from ".//../public/images/svg/Deserts.svg";
 import DrinksIcon from ".//../public/images/svg/drinks.svg";
+import Link from "next/link";
 
 let showMenuAnimation;
 let hideMenuAnimation;
@@ -67,7 +68,7 @@ const Header = () => {
             <div className={styles.headertop}>
               <div className={styles.headerleft}>
                 <div className={styles.mainlogo}>
-                  <a href="">
+                  <Link href="/">
                     <Image
                       src={Logo}
                       alt="Rosto logo"
@@ -75,7 +76,7 @@ const Header = () => {
                       width="80"
                       height="80"
                     />
-                  </a>
+                  </Link>
                 </div>
                 <div className={styles.topheaderlinks}>
                   <div className={styles.signin}>

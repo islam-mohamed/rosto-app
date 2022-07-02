@@ -1,7 +1,7 @@
 .slidercontainer {
   position: relative;
   width: 100%;
-  height: auto;
+  overflow: hidden;
 }
 .slideleft,
 .slideright {
@@ -32,14 +32,12 @@
 .sliderswrapper {
   position: relative;
   display: flex;
-  width: 400vw;
-  height: auto;
+  width: 400%;
   overflow: hidden;
 }
 
 .sliderwrapper {
-  width: 100vw;
-  height: auto;
+  width: 100%;
   transition: all 1s ease-in-out;
   z-index: 1;
 }
