@@ -124,6 +124,7 @@ const Product = () => {
           </div>
           <div className={styles.quantity}>
             <h2>quantity:</h2>
+
             <input
               type="number"
               defaultValue={1}

@@ -15,6 +15,7 @@ Footer
 }
 .mainlogo {
   margin: 1rem 4rem 1rem 0px;
+  cursor: pointer;
 }
 .rostomapp h2 {
   font-size: 3.2rem;
@@ -31,6 +32,9 @@ Footer
 .androidios {
   display: flex;
   gap: 2rem;
+}
+.androidios img {
+  cursor: pointer;
 }
 .footertop {
   width: 100%;
@@ -74,6 +78,7 @@ Footer
 }
 .socialiconimg {
   margin-right: 1rem;
+  cursor: pointer;
 }
 .footerbottom {
   display: flex;
@@ -92,6 +97,7 @@ Footer
 .footerbottom p span a {
   font-weight: 400;
   color: var(--color-primary);
+  cursor: pointer;
 }
 /*
   ********************************

@@ -5,6 +5,7 @@ import Logo from ".//../public/images/svg/rosto-logo.svg";
 import FacebookIcom from ".//../public/images/svg/facebook.svg";
 import InstagramIcom from ".//../public/images/svg/instagram.svg";
 import Image from "next/image";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -13,9 +14,9 @@ const Footer = () => {
       <div className="container">
         <div className={styles.rostomapp}>
           <div className={styles.mainlogo}>
-            <a href="">
+            <Link href="/">
               <Image src={Logo} alt="Rosto logo" title="Rosto logo" />
-            </a>
+            </Link>
           </div>
           <h2>Try rosto app</h2>
           <p>
@@ -23,22 +24,22 @@ const Footer = () => {
             exclusive deals.
           </p>
           <div className={styles.androidios}>
-            <a href="">
+            <Link href="#">
               <Image
                 src="/../public/images/svg/ios-store-icon.png"
                 alt="ios store"
                 width="122"
                 height="36"
               />
-            </a>
-            <a href="">
+            </Link>
+            <Link href="#">
               <Image
                 src="/../public/images/svg/play-store-icon.png"
                 alt="play store"
                 width="122"
                 height="36"
               />
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -49,23 +50,23 @@ const Footer = () => {
               <div className={styles.footermenu}>
                 <ul>
                   <li>
-                    <a href=" ">about us</a>
+                    <Link href="# ">about us</Link>
                   </li>
                   <li>
-                    <a href="">customer service</a>
+                    <Link href="#">customer service</Link>
                   </li>
                   <li>
-                    <a href="">our policy</a>
+                    <Link href="#">our policy</Link>
                   </li>
                   <li>
-                    <a href="">contact</a>
+                    <Link href="#">contact</Link>
                   </li>
                 </ul>
               </div>
               <div className={styles.footersocialicons}>
                 <p>Connect with Rosto</p>
                 <div className={styles.socialicons}>
-                  <a href="">
+                  <Link href="#">
                     <div className={styles.socialiconimg}>
                       <Image
                         src={FacebookIcom}
@@ -74,8 +75,8 @@ const Footer = () => {
                         height="40"
                       />
                     </div>
-                  </a>
-                  <a href="">
+                  </Link>
+                  <Link href="#">
                     <div className={styles.socialiconimg}>
                       <Image
                         src={InstagramIcom}
@@ -84,7 +85,7 @@ const Footer = () => {
                         height="40"
                       />
                     </div>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -100,7 +101,7 @@ const Footer = () => {
           <p>
             Designed by{" "}
             <span>
-              <a href="#">Islam Mohamed</a>
+              <Link href="#">Islam Mohamed</Link>
             </span>
             .
           </p>

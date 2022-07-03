@@ -27,7 +27,7 @@ export default function Home() {
       <SeparatorSlider />
       <Deals />
       <Separator />
-      <Pizza />
+      <Pizza numberOfItems={4} />
     </div>
   );
 }

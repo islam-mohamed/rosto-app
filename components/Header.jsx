@@ -79,49 +79,52 @@ const Header = () => {
                   </Link>
                 </div>
                 <div className={styles.topheaderlinks}>
-                  <div className={styles.signin}>
-                    <div className={styles.signinimg}>
-                      <Image
-                        className={styles.signin}
-                        src={SignInIcon}
-                        alt="sign-in icon"
-                        title="Sign-in"
-                        width="24"
-                        height="24"
-                      />
-                    </div>
-                    <a href="">
+                  <Link href="/sign-in">
+                    <div className={styles.signin}>
+                      <div className={styles.signinimg}>
+                        <Image
+                          src={SignInIcon}
+                          alt="sign-in icon"
+                          title="Sign-in"
+                          width="24"
+                          height="24"
+                        />
+                      </div>
                       <p>Sign In</p>
-                    </a>
-                  </div>
-                  <div className={styles.register}>
-                    <div className={styles.registerimg}>
-                      <Image
-                        src={RegisterIcon}
-                        alt="Register icon"
-                        title="Register"
-                        width="24"
-                        height="24"
-                      />
                     </div>
-                    <a href="">
-                      <p>Create Account</p>
-                    </a>
-                  </div>
-                  <div className={styles.location}>
-                    <div className={styles.locationimg}>
-                      <Image
-                        src={LocationIcon}
-                        alt="Location icon"
-                        title="Location"
-                        width="24"
-                        height="24"
-                      />
+                  </Link>
+                  <Link href="/register">
+                    <div className={styles.register}>
+                      <div className={styles.registerimg}>
+                        <Image
+                          src={RegisterIcon}
+                          alt="Register icon"
+                          title="Register"
+                          width="24"
+                          height="24"
+                        />
+                      </div>
+                      <a href="">
+                        <p>Create Account</p>
+                      </a>
                     </div>
-                    <a href="">
-                      <p>Find Rosto</p>
-                    </a>
-                  </div>
+                  </Link>
+                  <Link href="/find-rosto">
+                    <div className={styles.location}>
+                      <div className={styles.locationimg}>
+                        <Image
+                          src={LocationIcon}
+                          alt="Location icon"
+                          title="Location"
+                          width="24"
+                          height="24"
+                        />
+                      </div>
+                      <a href="">
+                        <p>Find Rosto</p>
+                      </a>
+                    </div>
+                  </Link>
                 </div>
               </div>
               <div className={styles.headerright}>
@@ -133,7 +136,7 @@ const Header = () => {
                     height="80"
                   />
                 </div>
-                <a href="">العربية</a>
+                <Link href="#">العربية</Link>
               </div>
             </div>
           </div>
@@ -145,25 +148,25 @@ const Header = () => {
                 <div className={styles.nav}>
                   <ul>
                     <li>
-                      <a href="">Deals</a>
+                      <Link href="/deals">Deals</Link>
                     </li>
                     <li>
-                      <a href="">pizza</a>
+                      <Link href="/pizza">pizza</Link>
                     </li>
                     <li>
-                      <a href="">Pasta</a>
+                      <Link href="/pasta">Pasta</Link>
                     </li>
                     <li>
-                      <a href="">starters</a>
+                      <Link href="/starters">starters</Link>
                     </li>
                     <li>
-                      <a href="">salads</a>
+                      <Link href="/salads">salads</Link>
                     </li>
                     <li>
-                      <a href="">desserts</a>
+                      <Link href="/desserts">desserts</Link>
                     </li>
                     <li>
-                      <a href="">drinks</a>
+                      <Link href="/drinks">drinks</Link>
                     </li>
                   </ul>
                 </div>
@@ -177,9 +180,9 @@ const Header = () => {
                       height="24"
                     />
                   </div>
-                  <a href="">
+                  <Link href="#">
                     <p>Cart</p>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -200,60 +203,56 @@ const Header = () => {
           <span></span>
         </div>
         <div className={styles.mobilelogo}>
-          <a href="">
+          <Link href="/">
             <Image src={Logo} alt="Rosto logo" title="Rosto logo" height="80" />
-          </a>
+          </Link>
         </div>
         <div className={styles.mcart}>
           <div className={styles.mcartimg}>
-            <a href="">
-              <Image
-                src={MCartIcon}
-                alt="cart"
-                title="cart icon"
-                width="24"
-                height="24"
-              />
-            </a>
+            <Image
+              src={MCartIcon}
+              alt="cart"
+              title="cart icon"
+              width="24"
+              height="24"
+            />
           </div>
-          <a href="">Cart</a>
+          <Link href="#">Cart</Link>
         </div>
       </div>
 
       <div className={styles.hamburgermenu} id="hamburger-menu">
         <div className={styles.hamburgertop}>
           <div className={styles.changelang}>
-            <a href="">العربية</a>
+            <Link href="#">العربية</Link>
           </div>
           <div className={styles.mcart}>
-            <a href="">
-              <Image
-                src={MCartIcon}
-                alt="cart"
-                title="cart icon"
-                width="25"
-                height="25"
-              />
-            </a>
-            <a href="">Cart</a>
+            <Image
+              src={MCartIcon}
+              alt="cart"
+              title="cart icon"
+              width="25"
+              height="25"
+            />
+            <Link href="#">Cart</Link>
           </div>
         </div>
         <div className={styles.tophamburgermenu}>
           <div className={styles.hlogo}>
-            <a href="">
+            <Link href="/">
               <Image
                 src={Logo}
                 alt="Rosto logo"
                 title="Rosto logo"
                 width="100"
               />
-            </a>
+            </Link>
           </div>
           <div className={styles.hsignin}>
-            <a href="">Sign In</a>
+            <Link href="/sign-in">Sign In</Link>
           </div>
           <div className={styles.hregister}>
-            <a href="">Create Account</a>
+            <Link href="/register">Create Account</Link>
           </div>
         </div>
         <div className={styles.menulist}>
@@ -261,31 +260,45 @@ const Header = () => {
           <div className={styles.menulistcontainer}>
             <div className={styles.menulistcard}>
               <Image src={DealsIcon} alt="deals" width="25" height="25" />
-              <p>Deals</p>
+              <Link href="/deals">
+                <p>Deals</p>
+              </Link>
             </div>
             <div className={styles.menulistcard}>
               <Image src={PizzaIcon} alt="Pizza" width="25" height="25" />
-              <p>Pizza</p>
+              <Link href="/pizza">
+                <p>Pizza</p>
+              </Link>
             </div>
             <div className={styles.menulistcard}>
               <Image src={PastaIcon} alt="Pasta" width="25" height="25" />
-              <p>Pasta</p>
+              <Link href="/pasta">
+                <p>Pasta</p>
+              </Link>
             </div>
             <div className={styles.menulistcard}>
               <Image src={StarterIcon} alt="Starters" width="25" height="25" />
-              <p>Starters</p>
+              <Link href="/starters">
+                <p>Starters</p>
+              </Link>
             </div>
             <div className={styles.menulistcard}>
               <Image src={SaladsIcon} alt="Salads" width="25" height="25" />
-              <p>Salads</p>
+              <Link href="/salads">
+                <p>Salads</p>
+              </Link>
             </div>
             <div className={styles.menulistcard}>
               <Image src={DessertIcon} alt="Deserts" width="25" height="25" />
-              <p>Dessert</p>
+              <Link href="/deserts">
+                <p>Dessert</p>
+              </Link>
             </div>
             <div className={styles.menulistcard}>
               <Image src={DrinksIcon} alt="Drinks" width="25" height="25" />
-              <p>Drinks</p>
+              <Link href="/drinks">
+                <p>Drinks</p>
+              </Link>
             </div>
           </div>
         </div>

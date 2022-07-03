@@ -44,6 +44,7 @@
   justify-content: center;
   align-items: center;
   margin-right: 2rem;
+  cursor: pointer;
 }
 .signinimg,
 .registerimg,
@@ -123,6 +124,7 @@
   font-weight: 600;
   text-transform: uppercase;
   color: var(--color-white);
+  cursor: pointer;
 }
 
 /*
@@ -171,6 +173,7 @@
 }
 .mobilelogo {
   height: 80px;
+  cursor: pointer;
 }
 
 .mcart {
@@ -233,6 +236,7 @@
   display: flex;
   justify-content: center;
   margin-bottom: 2.5rem;
+  cursor: pointer;
 }
 .hsignin a {
   display: flex;

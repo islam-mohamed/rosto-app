@@ -4,7 +4,7 @@ import SectionHeading from "./SectionHeading";
 import ProductCard from "./ProductCard";
 import { RostoContext } from "../context/rostoContext";
 
-const Pizza = () => {
+const Pizza = ({ numberOfItems }) => {
   const rostoData = useContext(RostoContext);
   return (
     <div className="stretch">
@@ -24,7 +24,7 @@ const Pizza = () => {
                   price={price[0]}
                 />
               ))
-              .slice(0, 4)}
+              .slice(0, numberOfItems)}
           </div>
         </div>
       </div>

@@ -1,7 +1,8 @@
 import React from "react";
+import Pizza from "../components/Pizza";
 
 const pizza = () => {
-  return <div>pizza</div>;
+  return <Pizza />;
 };
 
 export default pizza;
