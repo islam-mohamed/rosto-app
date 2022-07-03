@@ -9,7 +9,7 @@ const Deals = () => {
     <div className="stretch">
       <div className={styles.dealssection}>
         <div className="container">
-          <SectionHeading sectionh2={"exclusive deals"} />
+          <SectionHeading sectionh2={"exclusive deals"} viewAllLink="/deals" />
           <div className={styles.deals}>
             <ProductCard
               imgsrc={`/../public/images/deal-01.jpg`}

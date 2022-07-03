@@ -10,9 +10,7 @@ const Pizza = () => {
     <div className="stretch">
       <div className={styles.pizzapastasection}>
         <div className="container">
-          <a href="/pizza">
-            <SectionHeading sectionh2={`pizza`} />
-          </a>
+          <SectionHeading sectionh2={`pizza`} viewAllLink={"/pizza"} />
 
           <div className={styles.pizzapasta}>
             {rostoData

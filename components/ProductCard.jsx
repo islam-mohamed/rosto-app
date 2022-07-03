@@ -1,9 +1,14 @@
 import React from "react";
 import Image from "next/image";
 import styles from ".//../styles/ProductCard.module.css";
-import { Link } from "next/link";
+import { useRouter } from "next/router";
 
 const ProductCard = ({ id, imgsrc, heading, desc, price }) => {
+  const router = useRouter();
+  const productPageLink = () => {
+    router.push(`/products/${id}`);
+  };
+
   return (
     <div className={styles.productcard}>
       <div className={styles.prodimg}>
@@ -19,13 +24,9 @@ const ProductCard = ({ id, imgsrc, heading, desc, price }) => {
         <h3>{heading}</h3>
         <p className={styles.description}>{desc}</p>
         <p className={styles.price}>egp {price}</p>
-        <a
-          href={`/products/${id}`}
-          passHref={`/products/${id}`}
-          className={styles.rostobtn}
-        >
+        <button className={styles.rostobtn} onClick={productPageLink}>
           order
-        </a>
+        </button>
       </div>
     </div>
   );

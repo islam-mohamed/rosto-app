@@ -19,6 +19,9 @@
   text-transform: uppercase;
   color: var(--color-text);
 }
+.sectionheading p:hover {
+  cursor: pointer;
+}
 @media screen and (max-width: 370px) {
   .sectionheading h2 {
     font-size: 2rem;
