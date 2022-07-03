@@ -1,12 +1,15 @@
 .productcard {
+  position: relative;
   background-color: var(--color-white);
   border-radius: 0.5rem;
   box-shadow: var(--shadow-primary);
 }
 .prodimg {
+  position: relative;
   width: 100%;
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
+  overflow: hidden;
 }
 .productcontent {
   display: flex;

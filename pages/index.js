@@ -5,8 +5,6 @@ import SeparatorSlider from "../components/SeparatorSlider";
 import Separator from "../components/SeparatorSlider";
 import Deals from "../components/Deals";
 import Pizza from "../components/Pizza";
-import data from "../api/data";
-
 export default function Home() {
   return (
     <div className={styles.container}>
@@ -29,7 +27,7 @@ export default function Home() {
       <SeparatorSlider />
       <Deals />
       <Separator />
-      <Pizza products={data} />
+      <Pizza />
     </div>
   );
 }

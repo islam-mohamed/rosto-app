@@ -1,49 +1,32 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./../styles/Pizza.module.css";
 import SectionHeading from "./SectionHeading";
 import ProductCard from "./ProductCard";
-import data from "../api/data";
+import { RostoContext } from "../context/rostoContext";
 
-const Pizza = ({ products }) => {
-  console.log(products);
+const Pizza = () => {
+  const rostoData = useContext(RostoContext);
   return (
     <div className="stretch">
       <div className={styles.pizzapastasection}>
         <div className="container">
-          <SectionHeading sectionh2={`pizza`} />
+          <a href="/pizza">
+            <SectionHeading sectionh2={`pizza`} />
+          </a>
+
           <div className={styles.pizzapasta}>
-            <ProductCard
-              imgsrc={`/../public/images/pizza-01.jpg`}
-              heading={`Hut Savers Stuffed Crust Offer`}
-              desc={`Ranch base sauce with grilled chicken pieces, topped with
-              mushroom slices, onions, mixed with Mozzarella and topped with
-              tasty BBQ sauce and chopped parsley.`}
-              price={`85.00`}
-            />
-            <ProductCard
-              imgsrc={`/../public/images/pizza-02.jpg`}
-              heading={`Hut Savers Stuffed Crust Offer`}
-              desc={`Ranch base sauce with grilled chicken pieces, topped with
-            mushroom slices, onions, mixed with Mozzarella and topped with
-            tasty BBQ sauce and chopped parsley.`}
-              price={`85.00`}
-            />
-            <ProductCard
-              imgsrc={`/../public/images/pizza-03.jpg`}
-              heading={`Hut Savers Stuffed Crust Offer`}
-              desc={`Ranch base sauce with grilled chicken pieces, topped with
-          mushroom slices, onions, mixed with Mozzarella and topped with
-          tasty BBQ sauce and chopped parsley.`}
-              price={`85.00`}
-            />
-            <ProductCard
-              imgsrc={`/../public/images/pizza-04.jpg`}
-              heading={`Hut Savers Stuffed Crust Offer`}
-              desc={`Ranch base sauce with grilled chicken pieces, topped with
-        mushroom slices, onions, mixed with Mozzarella and topped with
-        tasty BBQ sauce and chopped parsley.`}
-              price={`85.00`}
-            />
+            {rostoData
+              .map(({ id, imageUrl, desc, name, price }) => (
+                <ProductCard
+                  key={id}
+                  id={id}
+                  imgsrc={imageUrl}
+                  heading={name}
+                  desc={desc}
+                  price={price[0]}
+                />
+              ))
+              .slice(0, 4)}
           </div>
         </div>
       </div>

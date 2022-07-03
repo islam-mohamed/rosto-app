@@ -3,8 +3,11 @@ import { useState } from "react";
 import Image from "next/image";
 import styles from "../../styles/Product.module.css";
 import PizzaIcon from "./../../public/images/svg/pizza.svg";
+import { useRouter } from "next/router";
 
 const Product = () => {
+  const router = useRouter();
+
   const [size, setSize] = useState(0);
   const [addIngredients, setAddIngredients] = useState({
     dI: 0,

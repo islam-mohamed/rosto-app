@@ -5,9 +5,7 @@ const SectionHeading = ({ sectionh2, sectionp = "view all" }) => {
   return (
     <div className={styles.sectionheading}>
       <h2>{sectionh2}</h2>
-      <a href="">
-        <p>{sectionp}</p>
-      </a>
+      <p>{sectionp}</p>
     </div>
   );
 };

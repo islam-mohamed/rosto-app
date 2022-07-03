@@ -1,12 +1,15 @@
 import React from "react";
 import Layout from "../components/Layout";
 import "../styles/globals.css";
+import { RostoContextProvider } from "../context/rostoContext";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <RostoContextProvider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </RostoContextProvider>
   );
 }
 
