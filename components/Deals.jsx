@@ -1,34 +1,30 @@
-import React from "react";
+import React, { useContext } from "react";
 import SectionHeading from "./SectionHeading";
 import styles from ".//../styles/Deals.module.css";
-import Image from "next/image";
 import ProductCard from "./ProductCard";
+import { RostoContext } from "../context/rostoContext";
 
-const Deals = () => {
+const Deals = ({ numberOfItems }) => {
+  const rostoData = useContext(RostoContext);
   return (
     <div className="stretch">
       <div className={styles.dealssection}>
         <div className="container">
           <SectionHeading sectionh2={"exclusive deals"} viewAllLink="/deals" />
           <div className={styles.deals}>
-            <ProductCard
-              imgsrc={`/../public/images/deal-01.jpg`}
-              heading={`Hut Savers Stuffed Crust Offer`}
-              desc={` 1 Medium Cheese Stuffed Crust pizza + 1 Medium Beef & Cheddar`}
-              price={`245.00`}
-            />
-            <ProductCard
-              imgsrc={`/../public/images/deal-02.jpg`}
-              heading={`Hut Savers Stuffed Crust Offer`}
-              desc={` 1 Medium Cheese Stuffed Crust pizza + 1 Medium Beef & Cheddar`}
-              price={`245.00`}
-            />
-            <ProductCard
-              imgsrc={`/../public/images/deal-03.jpg`}
-              heading={`Hut Savers Stuffed Crust Offer`}
-              desc={` 1 Medium Cheese Stuffed Crust pizza + 1 Medium Beef & Cheddar`}
-              price={`245.00`}
-            />
+            {rostoData.deals
+              .map(({ id, imageUrl, desc, name, price }) => (
+                <ProductCard
+                  key={id}
+                  id={id}
+                  imgsrc={imageUrl}
+                  heading={name}
+                  desc={desc}
+                  price={price}
+                  products="deals"
+                />
+              ))
+              .slice(0, numberOfItems)}
           </div>
         </div>
       </div>

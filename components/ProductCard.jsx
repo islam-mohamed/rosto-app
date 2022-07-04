@@ -3,10 +3,10 @@ import Image from "next/image";
 import styles from ".//../styles/ProductCard.module.css";
 import { useRouter } from "next/router";
 
-const ProductCard = ({ id, imgsrc, heading, desc, price }) => {
+const ProductCard = ({ id, imgsrc, heading, desc, price, products }) => {
   const router = useRouter();
   const productPageLink = () => {
-    router.push(`/products/${id}`);
+    router.push(`/${products}/${id}`);
   };
 
   return (

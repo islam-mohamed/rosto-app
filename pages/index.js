@@ -25,7 +25,7 @@ export default function Home() {
       </Head>
       <Slider />
       <SeparatorSlider />
-      <Deals />
+      <Deals numberOfItems={3} />
       <Separator />
       <Pizza numberOfItems={4} />
     </div>

@@ -13,7 +13,7 @@ const Pizza = ({ numberOfItems }) => {
           <SectionHeading sectionh2={`pizza`} viewAllLink={"/pizza"} />
 
           <div className={styles.pizzapasta}>
-            {rostoData
+            {rostoData.pizza
               .map(({ id, imageUrl, desc, name, price }) => (
                 <ProductCard
                   key={id}
@@ -22,6 +22,7 @@ const Pizza = ({ numberOfItems }) => {
                   heading={name}
                   desc={desc}
                   price={price[0]}
+                  products="pizza"
                 />
               ))
               .slice(0, numberOfItems)}

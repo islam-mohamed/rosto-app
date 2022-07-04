@@ -60,6 +60,14 @@ const Header = () => {
     });
   }, []);
 
+  const showHideMenuBackDrop = () => {
+    showMenuAnimation.reverse();
+    showMenuAnimation.play();
+    setTimeout(() => {
+      hideBackDropAnimation.play();
+    }, 400);
+  };
+
   return (
     <>
       <div className={styles.header}>
@@ -245,6 +253,7 @@ const Header = () => {
                 alt="Rosto logo"
                 title="Rosto logo"
                 width="100"
+                onClick={showHideMenuBackDrop}
               />
             </Link>
           </div>
@@ -258,48 +267,74 @@ const Header = () => {
         <div className={styles.menulist}>
           <h2 className={styles.menulisth2}>Menu List</h2>
           <div className={styles.menulistcontainer}>
-            <div className={styles.menulistcard}>
-              <Image src={DealsIcon} alt="deals" width="25" height="25" />
-              <Link href="/deals">
+            <Link href="/deals">
+              <div
+                className={styles.menulistcard}
+                onClick={showHideMenuBackDrop}
+              >
+                <Image src={DealsIcon} alt="deals" width="25" height="25" />
                 <p>Deals</p>
-              </Link>
-            </div>
-            <div className={styles.menulistcard}>
-              <Image src={PizzaIcon} alt="Pizza" width="25" height="25" />
-              <Link href="/pizza">
+              </div>
+            </Link>
+            <Link href="/pizza">
+              <div
+                className={styles.menulistcard}
+                onClick={showHideMenuBackDrop}
+              >
+                <Image src={PizzaIcon} alt="Pizza" width="25" height="25" />
                 <p>Pizza</p>
-              </Link>
-            </div>
-            <div className={styles.menulistcard}>
-              <Image src={PastaIcon} alt="Pasta" width="25" height="25" />
-              <Link href="/pasta">
+              </div>
+            </Link>
+            <Link href="/pasta">
+              <div
+                className={styles.menulistcard}
+                onClick={showHideMenuBackDrop}
+              >
+                <Image src={PastaIcon} alt="Pasta" width="25" height="25" />
                 <p>Pasta</p>
-              </Link>
-            </div>
-            <div className={styles.menulistcard}>
-              <Image src={StarterIcon} alt="Starters" width="25" height="25" />
-              <Link href="/starters">
+              </div>
+            </Link>
+            <Link href="/starters">
+              <div
+                className={styles.menulistcard}
+                onClick={showHideMenuBackDrop}
+              >
+                <Image
+                  src={StarterIcon}
+                  alt="Starters"
+                  width="25"
+                  height="25"
+                />
                 <p>Starters</p>
-              </Link>
-            </div>
-            <div className={styles.menulistcard}>
-              <Image src={SaladsIcon} alt="Salads" width="25" height="25" />
-              <Link href="/salads">
+              </div>
+            </Link>
+            <Link href="/salads">
+              <div
+                className={styles.menulistcard}
+                onClick={showHideMenuBackDrop}
+              >
+                <Image src={SaladsIcon} alt="Salads" width="25" height="25" />
                 <p>Salads</p>
-              </Link>
-            </div>
-            <div className={styles.menulistcard}>
-              <Image src={DessertIcon} alt="Deserts" width="25" height="25" />
-              <Link href="/deserts">
+              </div>
+            </Link>
+            <Link href="/deserts">
+              <div
+                className={styles.menulistcard}
+                onClick={showHideMenuBackDrop}
+              >
+                <Image src={DessertIcon} alt="Deserts" width="25" height="25" />
                 <p>Dessert</p>
-              </Link>
-            </div>
-            <div className={styles.menulistcard}>
-              <Image src={DrinksIcon} alt="Drinks" width="25" height="25" />
-              <Link href="/drinks">
+              </div>
+            </Link>
+            <Link href="/drinks">
+              <div
+                className={styles.menulistcard}
+                onClick={showHideMenuBackDrop}
+              >
+                <Image src={DrinksIcon} alt="Drinks" width="25" height="25" />
                 <p>Drinks</p>
-              </Link>
-            </div>
+              </div>
+            </Link>
           </div>
         </div>
         <div className={styles.hotnumber}>
@@ -315,13 +350,7 @@ const Header = () => {
       <div
         className="backdrop"
         id="backdrop"
-        onClick={() => {
-          showMenuAnimation.reverse();
-          showMenuAnimation.play();
-          setTimeout(() => {
-            hideBackDropAnimation.play();
-          }, 400);
-        }}
+        onClick={showHideMenuBackDrop}
       ></div>
     </>
   );
