@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import styles from "../../styles/Product.module.css";
 import PizzaIcon from "./../../public/images/svg/pizza.svg";
@@ -8,27 +8,11 @@ import { useRouter } from "next/router";
 
 const ProductPizza = () => {
   const [size, setSize] = useState(0);
-  const [pizza, setPizza] = useState({
-    id: "pizza01",
-    name: "BBQ Chicken Ranch",
-    desc: "Ranch base sauce with grilled chicken pieces, topped with mushroom slices, onions, mixed with Mozzarella and topped with tasty BBQ sauce and chopped parsley.",
-    imageUrl: "/../public/images/pizza-pp_01.png",
-    price: [85, 111, 129],
-  });
   const rostoData = useContext(RostoContext);
   const router = useRouter();
-
-  useEffect(() => {
-    const product = rostoData.pizza.find(
-      (product) => product.id === router.query.id
-    );
-
-    setPizza((prevPizza) => ({ ...prevPizza, ...product }));
-  }, [rostoData.pizza, router.query.id]);
-
-  // const pizza = rostoData.pizza.find(
-  //   (product) => product.id === router.query.id
-  // );
+  const pizza = rostoData.pizza.find(
+    (product) => product.id === router.query.id
+  );
 
   const [addIngredients, setAddIngredients] = useState({
     dI: 0,
@@ -69,6 +53,10 @@ const ProductPizza = () => {
   const handleQuantity = (event) => {
     setQuantity(event.target.value);
   };
+
+  if (!pizza) {
+    return <p> loading</p>;
+  }
 
   return (
     <div className="container">
