@@ -6,10 +6,10 @@ import { RostoContext } from "../../context/rostoContext";
 import { useRouter } from "next/router";
 import Head from "next/head";
 
-const ProductDeals = () => {
+const Pasta = () => {
   const rostoData = useContext(RostoContext);
   const router = useRouter();
-  const deal = rostoData.deals.find(
+  const pasta = rostoData.pasta.find(
     (product) => product.id === router.query.id
   );
 
@@ -54,23 +54,23 @@ const ProductDeals = () => {
     setQuantity(event.target.value);
   };
 
-  if (!deal) {
+  if (!pasta) {
     return <p> loading</p>;
   }
 
   return (
     <div className="container">
       <Head>
-        <title>Rosto - {deal.name}</title>
+        <title>Rosto - {pasta.name}</title>
       </Head>
       <div className={styles.product}>
         <div className={styles.productImage}>
-          <Image src={deal.imageUrl} alt="deal" width="500" height="500" />
+          <Image src={pasta.imageUrl} alt="deal" width="500" height="500" />
         </div>
         <div className={styles.productContent}>
           <div className={styles.productDescription}>
-            <h2>{deal.name}</h2>
-            <p>{deal.desc}</p>
+            <h2>{pasta.name}</h2>
+            <p>{pasta.desc}</p>
           </div>
 
           <div className={styles.addIngredients}>
@@ -128,7 +128,7 @@ const ProductDeals = () => {
           <div className={styles.price}>
             <h2>
               price: EGP{" "}
-              <span>{(deal.price + dI + eC + eG + eT) * quantity}</span>
+              <span>{(pasta.price + dI + eC + eG + eT) * quantity}</span>
             </h2>
           </div>
           <button className={styles.rostobtn}>Add to Cart</button>
@@ -138,4 +138,4 @@ const ProductDeals = () => {
   );
 };
 
-export default ProductDeals;
+export default Pasta;

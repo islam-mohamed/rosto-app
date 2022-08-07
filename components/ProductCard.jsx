@@ -17,7 +17,7 @@ const ProductCard = ({ id, imgsrc, heading, desc, price, products }) => {
           alt="offer 01"
           width={900}
           height={512}
-          objectFit="contain"
+          objectFit="cover"
         />
       </div>
       <div className={styles.productcontent}>

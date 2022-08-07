@@ -1,3 +1,4 @@
+import React from "react";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Slider from "../components/Slider";
@@ -6,7 +7,7 @@ import Separator from "../components/SeparatorSlider";
 import Deals from "../components/Deals";
 import Pizza from "../components/Pizza";
 
-export default function Home() {
+export default function Home(props) {
   return (
     <div className={styles.container}>
       <Head>

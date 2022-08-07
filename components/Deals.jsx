@@ -13,11 +13,11 @@ const Deals = ({ numberOfItems }) => {
           <SectionHeading sectionh2={"exclusive deals"} viewAllLink="/deals" />
           <div className={styles.deals}>
             {rostoData.deals
-              .map(({ id, imageUrl, desc, name, price }) => (
+              .map(({ id, cardImageUrl, desc, name, price }) => (
                 <ProductCard
                   key={id}
                   id={id}
-                  imgsrc={imageUrl}
+                  imgsrc={cardImageUrl}
                   heading={name}
                   desc={desc}
                   price={price}
