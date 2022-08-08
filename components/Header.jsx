@@ -317,7 +317,7 @@ const Header = () => {
                 <p>Salads</p>
               </div>
             </Link>
-            <Link href="/deserts">
+            <Link href="/desserts">
               <div
                 className={styles.menulistcard}
                 onClick={showHideMenuBackDrop}

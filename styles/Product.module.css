@@ -147,6 +147,19 @@
   font-weight: 100;
 }
 
+.counter {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+.counterimage {
+  opacity: 0.5;
+}
+.counternum p {
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
 .quantity input[type="number"] {
   margin-top: 1rem;
   font-size: 1.6rem;

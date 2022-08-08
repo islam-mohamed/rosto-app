@@ -5,6 +5,8 @@ import styles from "../../styles/Product.module.css";
 import { RostoContext } from "../../context/rostoContext";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import CounterInc from "../../public/images/svg/counterincr.svg";
+import CounterDec from "../../public/images/svg/counterdecr.svg";
 
 const Drinks = () => {
   const rostoData = useContext(RostoContext);
@@ -15,8 +17,11 @@ const Drinks = () => {
 
   const [quantity, setQuantity] = useState(1);
 
-  const handleQuantity = (event) => {
-    setQuantity(event.target.value);
+  const quantityIncrement = () => {
+    setQuantity((prevQuantity) => prevQuantity + 1);
+  };
+  const quantityDecrement = () => {
+    setQuantity((prevQuantity) => prevQuantity - 1);
   };
 
   if (!drink) {
@@ -39,15 +44,39 @@ const Drinks = () => {
 
           <div className={styles.quantity}>
             <h2>quantity:</h2>
-
-            <input
-              type="number"
-              defaultValue={1}
-              min={1}
-              max={10}
-              id="quantity"
-              onChange={handleQuantity}
-            ></input>
+            <div className={styles.counter}>
+              {quantity <= 1 && (
+                <Image
+                  className={styles.counterimage}
+                  src={CounterDec}
+                  alt="decrease quantity"
+                  title="decrease quantity"
+                  width="40"
+                  height="40"
+                />
+              )}
+              {quantity > 1 && (
+                <Image
+                  src={CounterDec}
+                  alt="decrease quantity"
+                  title="decrease quantity"
+                  width="40"
+                  height="40"
+                  onClick={quantityDecrement}
+                />
+              )}
+              <div className={styles.counternum}>
+                <p>{quantity}</p>
+              </div>
+              <Image
+                src={CounterInc}
+                alt="increase quantity"
+                title="increase quantity"
+                width="40"
+                height="40"
+                onClick={quantityIncrement}
+              />
+            </div>
           </div>
           <div className={styles.price}>
             <h2>
