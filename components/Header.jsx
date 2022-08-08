@@ -87,7 +87,7 @@ const Header = () => {
                   </Link>
                 </div>
                 <div className={styles.topheaderlinks}>
-                  <Link href="/sign-in">
+                  <Link href="/register-signin">
                     <div className={styles.signin}>
                       <div className={styles.signinimg}>
                         <Image
@@ -101,7 +101,7 @@ const Header = () => {
                       <p>Sign In</p>
                     </div>
                   </Link>
-                  <Link href="/register">
+                  <Link href="/register-signin">
                     <div className={styles.register}>
                       <div className={styles.registerimg}>
                         <Image
@@ -258,10 +258,14 @@ const Header = () => {
             </Link>
           </div>
           <div className={styles.hsignin}>
-            <Link href="/sign-in">Sign In</Link>
+            <Link href="/register-signin">
+              <a onClick={showHideMenuBackDrop}>Sign In</a>
+            </Link>
           </div>
           <div className={styles.hregister}>
-            <Link href="/register">Create Account</Link>
+            <Link href="/register-signin">
+              <a onClick={showHideMenuBackDrop}>Create Account</a>
+            </Link>
           </div>
         </div>
         <div className={styles.menulist}>
