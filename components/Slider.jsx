@@ -7,10 +7,10 @@ import ArrowRight from ".//../public/images/svg/right-arrow.svg";
 const Slider = () => {
   const [sliderIndex, setSliderIndex] = useState(0);
   const images = [
-    "/../public/images/slider-01.jpg",
-    "/../public/images/slider-02.jpg",
-    "/../public/images/slider-01.jpg",
-    "/../public/images/slider-02.jpg",
+    "https://islamabdelsalam.com/rosto/images/slider-01.jpg",
+    "https://islamabdelsalam.com/rosto/images/slider-02.jpg",
+    "https://islamabdelsalam.com/rosto/images/slider-01.jpg",
+    "https://islamabdelsalam.com/rosto/images/slider-02.jpg",
   ];
 
   const handleSlider = (direction) => {
