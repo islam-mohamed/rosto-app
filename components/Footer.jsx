@@ -2,6 +2,8 @@ import React from "react";
 import styles from ".//../styles/Footer.module.css";
 import Separator from "./SeparatorSlider";
 import Logo from ".//../public/images/svg/rosto-logo.svg";
+import AppleStore from ".//../public/images/svg/apple-store.svg";
+import PlayStore from ".//../public/images/svg/play-store.svg";
 import FacebookIcom from ".//../public/images/svg/facebook.svg";
 import InstagramIcom from ".//../public/images/svg/instagram.svg";
 import Image from "next/image";
@@ -26,18 +28,18 @@ const Footer = () => {
           <div className={styles.androidios}>
             <Link href="#">
               <Image
-                src="./../public/images/svg/ios-store-icon.png"
+                src={AppleStore}
                 alt="ios store"
-                width="122"
-                height="36"
+                width="152.5"
+                height="45"
               />
             </Link>
             <Link href="#">
               <Image
-                src="https://islamabdelsalam.com/rosto/images/svg/play-store-icon.png"
+                src={PlayStore}
                 alt="play store"
-                width="122"
-                height="36"
+                width="152.5"
+                height="45"
               />
             </Link>
           </div>
