@@ -26,7 +26,7 @@ const Footer = () => {
           <div className={styles.androidios}>
             <Link href="#">
               <Image
-                src="https://islamabdelsalam.com/rosto/svg/ios-store-icon.png"
+                src="./../public/images/svg/ios-store-icon.png"
                 alt="ios store"
                 width="122"
                 height="36"
