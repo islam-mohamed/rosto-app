@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles/register-signin.module.css";
+import styles from "../styles/registersignin.module.css";
 import Register from "../components/Register";
 import SignIn from "../components/Signin";
 
