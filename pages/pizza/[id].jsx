@@ -1,20 +1,30 @@
-import React, { useContext } from "react";
 import { useState } from "react";
 import Image from "next/image";
 import styles from "../../styles/Product.module.css";
 import PizzaIcon from "./../../public/images/svg/pizza.svg";
-import { RostoContext } from "../../context/rostoContext";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import CounterInc from "../../public/images/svg/counterincr.svg";
 import CounterDec from "../../public/images/svg/counterdecr.svg";
+import data from "../../api/data";
 
-const ProductPizza = () => {
-  const rostoData = useContext(RostoContext);
+export async function getStaticProps({ params }) {
+  return {
+    props: { rostoData: data.pizza.find((item) => item.id === params.id) },
+  };
+}
+export async function getStaticPaths() {
+  const paths = data.pizza.map((item) => ({ params: { id: item.id } }));
+
+  return {
+    paths,
+    fallback: true,
+  };
+}
+
+const ProductPizza = (props) => {
   const router = useRouter();
-  const pizza = rostoData.pizza.find(
-    (product) => product.id === router.query.id
-  );
+  const pizza = props.rostoData;
 
   const [size, setSize] = useState(0);
   const [addIngredients, setAddIngredients] = useState({
@@ -60,8 +70,8 @@ const ProductPizza = () => {
     setQuantity((prevQuantity) => prevQuantity - 1);
   };
 
-  if (!pizza) {
-    return <p> loading</p>;
+  if (router.isFallback || !pizza) {
+    return <p> loading...</p>;
   }
 
   return (
