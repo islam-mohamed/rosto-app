@@ -111,21 +111,6 @@
   color: var(--color-primary);
   background-color: var(--color-white);
 }
-.cart {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.cartimg {
-  margin-right: 0.5rem;
-}
-.cart p {
-  font-size: 1.6rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: var(--color-white);
-  cursor: pointer;
-}
 
 /*
 ********************************
@@ -174,21 +159,6 @@
 .mobilelogo {
   height: 80px;
   cursor: pointer;
-}
-
-.mcart {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.mcartimg {
-  margin-right: 0.5rem;
-}
-.mcart a {
-  font-size: 1.6rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: var(--color-primary);
 }
 
 .hamburgermenu {

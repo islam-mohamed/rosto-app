@@ -1,14 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import anime from "animejs";
-import { useEffect } from "react";
 import styles from ".//../styles/Header.module.css";
 import Logo from ".//../public/images/svg/rosto-logo.svg";
 import SignInIcon from ".//../public/images/svg/sign-in.svg";
 import RegisterIcon from ".//../public/images/svg/create-account.svg";
 import LocationIcon from ".//../public/images/svg/location.svg";
 import HotNumberIcon from ".//../public/images/svg/hot-number-01.svg";
-import CartIcon from ".//../public/images/svg/cart.svg";
 import MCartIcon from ".//../public/images/svg/cart-m.svg";
 import DealsIcon from ".//../public/images/svg/deals.svg";
 import PizzaIcon from ".//../public/images/svg/pizza.svg";
@@ -18,6 +16,8 @@ import SaladsIcon from ".//../public/images/svg/salad.svg";
 import DessertIcon from ".//../public/images/svg/Deserts.svg";
 import DrinksIcon from ".//../public/images/svg/drinks.svg";
 import Link from "next/link";
+import CartMain from "./CartMain";
+import CartMobile from "./CartMobile";
 
 let showMenuAnimation;
 let hideMenuAnimation;
@@ -178,20 +178,7 @@ const Header = () => {
                     </li>
                   </ul>
                 </div>
-                <div className={styles.cart}>
-                  <div className={styles.cartimg}>
-                    <Image
-                      src={CartIcon}
-                      alt="cart"
-                      title="cart icon"
-                      width="24"
-                      height="24"
-                    />
-                  </div>
-                  <Link href="#">
-                    <p>Cart</p>
-                  </Link>
-                </div>
+                <CartMain />
               </div>
             </div>
           </div>
@@ -215,18 +202,7 @@ const Header = () => {
             <Image src={Logo} alt="Rosto logo" title="Rosto logo" height="80" />
           </Link>
         </div>
-        <div className={styles.mcart}>
-          <div className={styles.mcartimg}>
-            <Image
-              src={MCartIcon}
-              alt="cart"
-              title="cart icon"
-              width="24"
-              height="24"
-            />
-          </div>
-          <Link href="#">Cart</Link>
-        </div>
+        <CartMobile />
       </div>
 
       <div className={styles.hamburgermenu} id="hamburger-menu">
@@ -234,16 +210,7 @@ const Header = () => {
           <div className={styles.changelang}>
             <Link href="#">العربية</Link>
           </div>
-          <div className={styles.mcart}>
-            <Image
-              src={MCartIcon}
-              alt="cart"
-              title="cart icon"
-              width="25"
-              height="25"
-            />
-            <Link href="#">Cart</Link>
-          </div>
+          <CartMobile />
         </div>
         <div className={styles.tophamburgermenu}>
           <div className={styles.hlogo}>

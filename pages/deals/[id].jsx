@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { RostoContext } from "../../context/rostoContext";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import styles from "../../styles/Product.module.css";
@@ -21,6 +22,7 @@ export async function getStaticPaths() {
   };
 }
 const ProductDeals = (props) => {
+  const { addToCart } = useContext(RostoContext);
   const router = useRouter();
   const deal = props.rostoData;
 
@@ -93,7 +95,20 @@ const ProductDeals = (props) => {
               price: EGP <span>{deal.price * quantity}</span>
             </h2>
           </div>
-          <button className={styles.rostobtn}>Add to Cart</button>
+          <button
+            className={styles.rostobtn}
+            onClick={() =>
+              addToCart({
+                id: deal.id,
+                name: deal.name,
+                imageUrl: deal.imageUrl,
+                price: deal.price,
+                quantity,
+              })
+            }
+          >
+            Add to Cart
+          </button>
         </div>
       </div>
     </div>

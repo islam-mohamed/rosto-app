@@ -1,0 +1,26 @@
+.cart {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.cartimg {
+  position: relative;
+  margin-right: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cartItems {
+  position: absolute;
+  top: 15px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+.cart p {
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--color-white);
+  cursor: pointer;
+}
