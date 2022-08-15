@@ -1,11 +1,10 @@
-import React, { useContext } from "react";
 import styles from "./../styles/Pizza.module.css";
 import SectionHeading from "./SectionHeading";
 import ProductCard from "./ProductCard";
-import { RostoContext } from "../context/rostoContext";
+import data from "../api/data";
 
 const Pizza = ({ numberOfItems }) => {
-  const rostoData = useContext(RostoContext);
+  const rostoData = data;
   return (
     <div className="stretch">
       <div className={styles.pizzapastasection}>

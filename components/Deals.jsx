@@ -1,11 +1,10 @@
-import React, { useContext } from "react";
 import SectionHeading from "./SectionHeading";
 import styles from ".//../styles/Deals.module.css";
 import ProductCard from "./ProductCard";
-import { RostoContext } from "../context/rostoContext";
+import data from "../api/data";
 
 const Deals = ({ numberOfItems }) => {
-  const rostoData = useContext(RostoContext);
+  const rostoData = data;
   return (
     <div className="stretch">
       <div className={styles.dealssection}>

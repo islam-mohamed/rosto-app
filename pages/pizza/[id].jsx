@@ -27,41 +27,8 @@ const ProductPizza = (props) => {
   const pizza = props.rostoData;
 
   const [size, setSize] = useState(0);
-  const [addIngredients, setAddIngredients] = useState({
-    dI: 0,
-    eC: 0,
-    eG: 0,
-    eT: 0,
-  });
-  const { dI, eC, eG, eT } = addIngredients;
 
   const [quantity, setQuantity] = useState(1);
-
-  const handleChange = (event) => {
-    const { checked, id } = event.target;
-
-    if (id === "d-ingredient") {
-      checked
-        ? setAddIngredients((prvState) => ({ ...prvState, dI: 25.0 }))
-        : setAddIngredients((prvState) => ({ ...prvState, dI: 0.0 }));
-    }
-    if (id === "e-cheese") {
-      checked
-        ? setAddIngredients((prvState) => ({ ...prvState, eC: 20.0 }))
-        : setAddIngredients((prvState) => ({ ...prvState, eC: 0.0 }));
-    }
-    if (id === "e-garlic") {
-      checked
-        ? setAddIngredients((prvState) => ({ ...prvState, eG: 10.0 }))
-        : setAddIngredients((prvState) => ({ ...prvState, eG: 0.0 }));
-    }
-
-    if (id === "e-tomato") {
-      checked
-        ? setAddIngredients((prvState) => ({ ...prvState, eT: 10.0 }))
-        : setAddIngredients((prvState) => ({ ...prvState, eT: 0.0 }));
-    }
-  };
 
   const quantityIncrement = () => {
     setQuantity((prevQuantity) => prevQuantity + 1);
@@ -92,59 +59,38 @@ const ProductPizza = (props) => {
             <h2>choose size:</h2>
             <div className={styles.sizeContainer}>
               <div className={styles.sizeImage} onClick={() => setSize(0)}>
-                <Image src={PizzaIcon} alt="Pizza" width="40" height="40" />
+                <Image
+                  src={PizzaIcon}
+                  alt="Small size"
+                  title="Small size"
+                  width="40"
+                  height="40"
+                />
                 <p>s</p>
               </div>
               <div className={styles.sizeImage} onClick={() => setSize(1)}>
-                <Image src={PizzaIcon} alt="Pizza" width="50" height="50" />
+                <Image
+                  src={PizzaIcon}
+                  alt="Medium size"
+                  title="Medium size"
+                  width="50"
+                  height="50"
+                />
                 <p>m</p>
               </div>
               <div className={styles.sizeImage} onClick={() => setSize(2)}>
-                <Image src={PizzaIcon} alt="Pizza" width="60" height="60" />
+                <Image
+                  src={PizzaIcon}
+                  alt="Large size"
+                  title="Large size"
+                  width="60"
+                  height="60"
+                />
                 <p>l</p>
               </div>
             </div>
           </div>
-          <div className={styles.addIngredients}>
-            <h2>Choose Additional Ingredients:</h2>
-            <div className={styles.ingredients}>
-              <label
-                className={styles.checkBoxContainer}
-                htmlFor="d-ingredient"
-              >
-                <input
-                  type="checkbox"
-                  id="d-ingredient"
-                  onChange={handleChange}
-                />
-                <span className={styles.checkMark}></span>
-                <span className={styles.checkBoxLabel}>
-                  Double Ingredients ( <b>+ EGP 25.00</b> )
-                </span>
-              </label>
-              <label className={styles.checkBoxContainer} htmlFor="e-cheese">
-                <input type="checkbox" id="e-cheese" onChange={handleChange} />
-                <span className={styles.checkMark}></span>
-                <span className={styles.checkBoxLabel}>
-                  Extra Cheese ( <b>+ EGP 20.00</b> )
-                </span>
-              </label>
-              <label className={styles.checkBoxContainer} htmlFor="e-garlic">
-                <input type="checkbox" id="e-garlic" onChange={handleChange} />
-                <span className={styles.checkMark}></span>
-                <span className={styles.checkBoxLabel}>
-                  Extra Garlic Sauce ( <b>+ EGP 10.00</b> )
-                </span>
-              </label>
-              <label className={styles.checkBoxContainer} htmlFor="e-tomato">
-                <input type="checkbox" id="e-tomato" onChange={handleChange} />
-                <span className={styles.checkMark}></span>
-                <span className={styles.checkBoxLabel}>
-                  Extra Tomato Sauce ( <b>+ EGP 10.00</b> )
-                </span>
-              </label>
-            </div>
-          </div>
+
           <div className={styles.quantity}>
             <h2>quantity:</h2>
             <div className={styles.counter}>
@@ -183,8 +129,7 @@ const ProductPizza = (props) => {
           </div>
           <div className={styles.price}>
             <h2>
-              price: EGP{" "}
-              <span>{(pizza.price[size] + dI + eC + eG + eT) * quantity}</span>
+              price: EGP <span>{pizza.price[size] * quantity}</span>
             </h2>
           </div>
           <button className={styles.rostobtn}>Add to Cart</button>

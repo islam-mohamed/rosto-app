@@ -117,7 +117,7 @@ const Header = () => {
                       </a>
                     </div>
                   </Link>
-                  <Link href="/find-rosto">
+                  <Link href="#">
                     <div className={styles.location}>
                       <div className={styles.locationimg}>
                         <Image
