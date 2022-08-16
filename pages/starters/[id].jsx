@@ -105,6 +105,7 @@ const Starters = (props) => {
                 name: starter.name,
                 imageUrl: starter.imageUrl,
                 price: starter.price,
+                quantity,
               })
             }
           >

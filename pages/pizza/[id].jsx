@@ -141,6 +141,7 @@ const ProductPizza = (props) => {
                 id: pizza.id,
                 name: pizza.name,
                 imageUrl: pizza.imageUrl,
+                size: size,
                 price: pizza.price[size],
                 quantity,
               })

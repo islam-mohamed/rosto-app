@@ -7,7 +7,6 @@ import SignInIcon from ".//../public/images/svg/sign-in.svg";
 import RegisterIcon from ".//../public/images/svg/create-account.svg";
 import LocationIcon from ".//../public/images/svg/location.svg";
 import HotNumberIcon from ".//../public/images/svg/hot-number-01.svg";
-import MCartIcon from ".//../public/images/svg/cart-m.svg";
 import DealsIcon from ".//../public/images/svg/deals.svg";
 import PizzaIcon from ".//../public/images/svg/pizza.svg";
 import PastaIcon from ".//../public/images/svg/pasta.svg";

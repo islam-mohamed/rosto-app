@@ -72,6 +72,9 @@
 .counterimage {
   opacity: 0.5;
 }
+.counter img:hover {
+  cursor: pointer;
+}
 .counternum p {
   font-size: 4rem;
   font-weight: 700;

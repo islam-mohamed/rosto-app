@@ -34,7 +34,7 @@ const CartMobile = () => {
           ""
         )}
       </div>
-      <Link href="#">
+      <Link href="/cart">
         <p>Cart</p>
       </Link>
     </div>

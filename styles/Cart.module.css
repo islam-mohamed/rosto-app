@@ -1,0 +1,55 @@
+.pizzapastasection {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  background: url(./../public/images/svg/product-pattern.png);
+  background-repeat: repeat;
+  padding-bottom: 5rem;
+}
+.tocheckOut {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.totalPrice {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 3rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-primary);
+  font-size: 2rem;
+  font-family: 700;
+}
+
+.totalPrice span {
+  color: var(--color-primary);
+}
+.rostobtn {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-size: 2rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding: 1rem 0rem;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border-radius: 0.5rem;
+  outline: none;
+  border: none;
+  box-shadow: var(--shadow-primary);
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+.rostobtn:hover {
+  filter: brightness(90%);
+  box-shadow: 1px 1px 15px 3px rgba(0, 0, 0, 0.1);
+}
+.rostobtn:active {
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+}
