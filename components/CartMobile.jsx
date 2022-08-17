@@ -6,8 +6,9 @@ import { RostoContext } from "../context/rostoContext";
 import Link from "next/link";
 import Image from "next/image";
 
-const CartMobile = () => {
+const CartMobile = ({ onCartClick }) => {
   const { cartItems } = useContext(RostoContext);
+  const numberOfItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   return (
     <div className={styles.mcart}>
       <div className={styles.mcartimg}>
@@ -29,13 +30,13 @@ const CartMobile = () => {
           />
         )}
         {cartItems.length > 0 ? (
-          <span className={styles.cartItems}>{cartItems.length}</span>
+          <span className={styles.cartItems}>{numberOfItems}</span>
         ) : (
           ""
         )}
       </div>
       <Link href="/cart">
-        <p>Cart</p>
+        <p onClick={onCartClick}>Cart</p>
       </Link>
     </div>
   );

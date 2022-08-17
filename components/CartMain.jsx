@@ -8,6 +8,7 @@ import Image from "next/image";
 
 const CartMain = () => {
   const { cartItems } = useContext(RostoContext);
+  const numberOfItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   return (
     <div className={styles.cart}>
       <div className={styles.cartimg}>
@@ -29,7 +30,7 @@ const CartMain = () => {
           />
         )}
         {cartItems.length > 0 ? (
-          <span className={styles.cartItems}>{cartItems.length}</span>
+          <span className={styles.cartItems}>{numberOfItems}</span>
         ) : (
           ""
         )}

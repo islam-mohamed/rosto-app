@@ -138,7 +138,7 @@ const ProductPizza = (props) => {
             className={styles.rostobtn}
             onClick={() =>
               addToCart({
-                id: pizza.id,
+                id: `${pizza.id}-${size}`,
                 name: pizza.name,
                 imageUrl: pizza.imageUrl,
                 size: size,

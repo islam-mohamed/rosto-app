@@ -13,12 +13,12 @@
   align-items: center;
 }
 .totalPrice {
-  width: 50%;
+  width: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 2rem 3rem;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
   border-radius: 0.5rem;
   background-color: var(--color-white);
   box-shadow: var(--shadow-primary);

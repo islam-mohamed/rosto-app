@@ -209,7 +209,7 @@ const Header = () => {
           <div className={styles.changelang}>
             <Link href="#">العربية</Link>
           </div>
-          <CartMobile />
+          <CartMobile onCartClick={showHideMenuBackDrop} />
         </div>
         <div className={styles.tophamburgermenu}>
           <div className={styles.hlogo}>

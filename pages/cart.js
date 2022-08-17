@@ -7,6 +7,9 @@ import { RostoContext } from "../context/rostoContext";
 
 const cart = () => {
   const { cartItems } = useContext(RostoContext);
+  const totalPrice = cartItems.reduce((curr, item) => {
+    return curr + item.price * item.quantity;
+  }, 0);
   return (
     <>
       <Head>
@@ -29,7 +32,7 @@ const cart = () => {
             ))}
             <div className={styles.tocheckOut}>
               <p className={styles.totalPrice}>
-                Total: &nbsp; <span> 50</span>
+                Total: &nbsp; <span>{totalPrice}</span>
               </p>
 
               <button className={styles.rostobtn}>Checkout</button>

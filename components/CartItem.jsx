@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
+import { RostoContext } from "../context/rostoContext";
 import styles from "./../styles/CartItem.module.css";
 import Image from "next/image";
 import CounterInc from "./../public/images/svg/counterincr.svg";
@@ -6,15 +7,7 @@ import CounterDec from "./../public/images/svg/counterdecr.svg";
 import CounterDelete from "./../public/images/svg/delete.svg";
 
 const CartItem = ({ id, img, title, price, quantity, size }) => {
-  const [conterQuantity, setConterQuantity] = useState(quantity);
-
-  const quantityIncrement = () => {
-    setConterQuantity((prevQuantity) => prevQuantity + 1);
-  };
-  const quantityDecrement = () => {
-    setConterQuantity((prevQuantity) => prevQuantity - 1);
-  };
-
+  const { increaseItemCount, removeFromCart } = useContext(RostoContext);
   let imageHeight = "";
   if (id.includes("deal") || id.includes("pizza") || id.includes("pasta")) {
     imageHeight = 100;
@@ -52,7 +45,7 @@ const CartItem = ({ id, img, title, price, quantity, size }) => {
       </div>
       <div className={styles.prodGroup}>
         <div className={styles.counter}>
-          {conterQuantity <= 1 && (
+          {quantity <= 1 && (
             <Image
               src={CounterDelete}
               alt="decrease quantity"
@@ -60,9 +53,18 @@ const CartItem = ({ id, img, title, price, quantity, size }) => {
               width="30"
               height="30"
               layout="fixed"
+              onClick={() =>
+                removeFromCart({
+                  id,
+                  img,
+                  title,
+                  size,
+                  price,
+                })
+              }
             />
           )}
-          {conterQuantity > 1 && (
+          {quantity > 1 && (
             <Image
               src={CounterDec}
               alt="decrease quantity"
@@ -70,11 +72,19 @@ const CartItem = ({ id, img, title, price, quantity, size }) => {
               width="30"
               height="30"
               layout="fixed"
-              onClick={quantityDecrement}
+              onClick={() =>
+                removeFromCart({
+                  id,
+                  img,
+                  title,
+                  size,
+                  price,
+                })
+              }
             />
           )}
           <div className={styles.counternum}>
-            <p>{conterQuantity}</p>
+            <p>{quantity}</p>
           </div>
           <Image
             src={CounterInc}
@@ -83,12 +93,20 @@ const CartItem = ({ id, img, title, price, quantity, size }) => {
             width="30"
             height="30"
             layout="fixed"
-            onClick={quantityIncrement}
+            onClick={() =>
+              increaseItemCount({
+                id,
+                img,
+                title,
+                size,
+                price,
+              })
+            }
           />
         </div>
         <div className={styles.priceGroup}>
           <p>
-            Price: <span>{price * conterQuantity}</span>
+            Price: <span>{price * quantity}</span>
           </p>
         </div>
       </div>
