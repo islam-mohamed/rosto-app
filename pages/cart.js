@@ -5,7 +5,7 @@ import SectionHeading from "../components/SectionHeading";
 import CartItem from "../components/CartItem";
 import { RostoContext } from "../context/rostoContext";
 
-const cart = () => {
+const Cart = () => {
   const { cartItems } = useContext(RostoContext);
   const totalPrice = cartItems.reduce((curr, item) => {
     return curr + item.price * item.quantity;
@@ -44,4 +44,4 @@ const cart = () => {
   );
 };
 
-export default cart;
+export default Cart;
