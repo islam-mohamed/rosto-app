@@ -67,28 +67,34 @@ const ProductPizza = (props) => {
                   title="Small size"
                   width="40"
                   height="40"
+                  layout="fixed"
                 />
-                <p>s</p>
+
+                {size === 0 && <span>Small</span>}
               </div>
               <div className={styles.sizeImage} onClick={() => setSize(1)}>
                 <Image
                   src={PizzaIcon}
                   alt="Medium size"
                   title="Medium size"
-                  width="50"
-                  height="50"
+                  width="55"
+                  height="55"
+                  layout="fixed"
                 />
-                <p>m</p>
+
+                {size === 1 && <span>Medium</span>}
               </div>
               <div className={styles.sizeImage} onClick={() => setSize(2)}>
                 <Image
                   src={PizzaIcon}
                   alt="Large size"
                   title="Large size"
-                  width="60"
-                  height="60"
+                  width="70"
+                  height="70"
+                  layout="fixed"
                 />
-                <p>l</p>
+
+                {size === 2 && <span>Large</span>}
               </div>
             </div>
           </div>
