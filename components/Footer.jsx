@@ -103,7 +103,13 @@ const Footer = () => {
           <p>
             Designed by{" "}
             <span>
-              <Link href="#">Islam Mohamed</Link>
+              <a
+                href="https://islamabdelsalam.com/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Islam Mohamed
+              </a>
             </span>
             .
           </p>
