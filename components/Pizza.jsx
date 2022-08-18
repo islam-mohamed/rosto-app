@@ -1,5 +1,5 @@
 import styles from "./../styles/Pizza.module.css";
-import SectionHeading from "./SectionHeading";
+import SectionHeading from "./../components/SectionHeading";
 import ProductCard from "./ProductCard";
 import data from "../api/data";
 

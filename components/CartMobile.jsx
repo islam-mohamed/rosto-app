@@ -11,30 +11,32 @@ const CartMobile = ({ onCartClick }) => {
   const numberOfItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   return (
     <div className={styles.mcart}>
-      <div className={styles.mcartimg}>
-        {cartItems.length > 0 ? (
-          <Image
-            src={CartIconMobileFilled}
-            alt="cart"
-            title="cart icon"
-            width="40"
-            height="40"
-          />
-        ) : (
-          <Image
-            src={CartIconMobile}
-            alt="cart"
-            title="cart icon"
-            width="40"
-            height="40"
-          />
-        )}
-        {cartItems.length > 0 ? (
-          <span className={styles.cartItems}>{numberOfItems}</span>
-        ) : (
-          ""
-        )}
-      </div>
+      <Link href="/cart">
+        <div className={styles.mcartimg} onClick={onCartClick}>
+          {cartItems.length > 0 ? (
+            <Image
+              src={CartIconMobileFilled}
+              alt="cart"
+              title="cart icon"
+              width="40"
+              height="40"
+            />
+          ) : (
+            <Image
+              src={CartIconMobile}
+              alt="cart"
+              title="cart icon"
+              width="40"
+              height="40"
+            />
+          )}
+          {cartItems.length > 0 ? (
+            <span className={styles.cartItems}>{numberOfItems}</span>
+          ) : (
+            ""
+          )}
+        </div>
+      </Link>
       <Link href="/cart">
         <p onClick={onCartClick}>Cart</p>
       </Link>

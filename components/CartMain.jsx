@@ -11,30 +11,32 @@ const CartMain = () => {
   const numberOfItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   return (
     <div className={styles.cart}>
-      <div className={styles.cartimg}>
-        {cartItems.length > 0 ? (
-          <Image
-            src={CartIconFilled}
-            alt="cart"
-            title="cart icon"
-            width="40"
-            height="40"
-          />
-        ) : (
-          <Image
-            src={CartIcon}
-            alt="cart"
-            title="cart icon"
-            width="40"
-            height="40"
-          />
-        )}
-        {cartItems.length > 0 ? (
-          <span className={styles.cartItems}>{numberOfItems}</span>
-        ) : (
-          ""
-        )}
-      </div>
+      <Link href="/cart">
+        <div className={styles.cartimg}>
+          {cartItems.length > 0 ? (
+            <Image
+              src={CartIconFilled}
+              alt="cart"
+              title="cart icon"
+              width="40"
+              height="40"
+            />
+          ) : (
+            <Image
+              src={CartIcon}
+              alt="cart"
+              title="cart icon"
+              width="40"
+              height="40"
+            />
+          )}
+          {cartItems.length > 0 ? (
+            <span className={styles.cartItems}>{numberOfItems}</span>
+          ) : (
+            ""
+          )}
+        </div>
+      </Link>
       <Link href="/cart">
         <p>Cart</p>
       </Link>

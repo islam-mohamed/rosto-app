@@ -95,7 +95,6 @@ const RostoContextProvider = (props) => {
     increaseItemCount: increaseItemCount,
     removeFromCart: removeFromCartHandler,
   };
-  console.log(INITIAL_STATE.cartItems);
   return (
     <RostoContext.Provider value={INITIAL_STATE}>
       {props.children}
