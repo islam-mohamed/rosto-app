@@ -3,6 +3,8 @@ import Head from "next/head";
 import styles from "./../styles/Cart.module.css";
 import SectionHeading from "../components/SectionHeading";
 import CartItem from "../components/CartItem";
+import Image from "next/image";
+import EmptyCart from "./../public/images/svg/emtyCart.svg";
 import { RostoContext } from "../context/rostoContext";
 
 const Cart = () => {
@@ -30,13 +32,23 @@ const Cart = () => {
                 size={item.size}
               />
             ))}
-            <div className={styles.tocheckOut}>
-              <p className={styles.totalPrice}>
-                Total: &nbsp; <span>{totalPrice}</span>
-              </p>
+            {cartItems.length === 0 ? (
+              <Image
+                src={EmptyCart}
+                alt="404 image"
+                title="404 image"
+                width="1920"
+                height="1080"
+              />
+            ) : (
+              <div className={styles.tocheckOut}>
+                <p className={styles.totalPrice}>
+                  Total: &nbsp; <span>{totalPrice}</span>
+                </p>
 
-              <button className={styles.rostobtn}>Checkout</button>
-            </div>
+                <button className={styles.rostobtn}>Checkout</button>
+              </div>
+            )}
           </div>
         </div>
       </div>
