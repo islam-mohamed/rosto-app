@@ -1,0 +1,169 @@
+.paperBg {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+.overflow {
+  overflow-y: auto;
+}
+.paperCh {
+  width: 65%;
+}
+.checkout {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+}
+.CheckOutHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.headerLogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5em;
+}
+.headerLogo h2,
+.totalPriceTitle {
+  font-size: 2rem;
+  color: var(--color-text);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.headerSignIn {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.haveAccount {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.headerSignIn span {
+  font-size: 1.2rem;
+}
+.haveAccountbtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  font-weight: 700;
+  padding: 1rem;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border-radius: 0.5rem;
+  outline: none;
+  border: none;
+  box-shadow: var(--shadow-primary);
+  transition: all 0.1s ease-in-out;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.haveAccountbtn:hover {
+  filter: brightness(90%);
+  box-shadow: 1px 1px 15px 3px rgba(0, 0, 0, 0.1);
+}
+.haveAccountbtn:active {
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+}
+
+.deliveryAddress,
+.deliveryForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.deliveryAddress p {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.deliveryAddress input,
+.deliveryAddress select,
+.deliveryAddress textarea,
+.creditCardPayment input,
+.creditCardPayment select {
+  height: 4rem;
+  padding: 1rem;
+  outline: none;
+  border: 0.1rem solid var(--color-primary);
+  border-radius: 0.5rem;
+}
+.deliveryAddress textarea {
+  height: 36rem;
+}
+.deliveryAddress input:focus {
+  box-shadow: var(--shadow-primary);
+  transition: all 0.1s ease-in-out;
+}
+.mobileNumber {
+  width: auto;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.building {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.deliveryAddress label,
+.creditCardPayment label {
+  font-size: 1.5rem;
+  color: var(--color-text);
+}
+
+.payment {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.ordersummary {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.ordersummary p {
+  font-size: 1.2rem;
+}
+.ordersummaryTotalPrice {
+  margin-top: 2rem;
+}
+.totalPrice {
+  font-weight: 700;
+  margin-top: 2rem;
+  color: var(--color-primary);
+}
+.deliveryPrice {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+.fixedRateDelivery {
+  display: block;
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-transform: capitalize;
+}
+
+.paymentMethods {
+  margin-top: 1rem;
+}
+.creditCardPayment {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.expiration {
+  display: flex;
+  gap: 1rem;
+}

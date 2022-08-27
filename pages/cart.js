@@ -6,12 +6,20 @@ import CartItem from "../components/CartItem";
 import Image from "next/image";
 import EmptyCart from "./../public/images/svg/emtyCart.svg";
 import { RostoContext } from "../context/rostoContext";
+import { useRouter } from "next/router";
 
 const Cart = () => {
   const { cartItems } = useContext(RostoContext);
   const totalPrice = cartItems.reduce((curr, item) => {
     return curr + item.price * item.quantity;
   }, 0);
+
+  const router = useRouter();
+  const checkoutPageLink = (e) => {
+    e.preventDefault();
+    router.push("/checkout");
+  };
+
   return (
     <>
       <Head>
@@ -46,7 +54,9 @@ const Cart = () => {
                   Total: &nbsp; <span>{totalPrice}</span>
                 </p>
 
-                <button className={styles.rostobtn}>Checkout</button>
+                <button className={styles.rostobtn} onClick={checkoutPageLink}>
+                  Checkout
+                </button>
               </div>
             )}
           </div>

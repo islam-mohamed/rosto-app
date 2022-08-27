@@ -9,7 +9,6 @@ const SectionHeading = ({
   viewAllLink = "/",
 }) => {
   const router = useRouter();
-  console.log(router.pathname);
   return (
     <div className={styles.sectionheading}>
       <h2>{sectionh2}</h2>

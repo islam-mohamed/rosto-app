@@ -1,0 +1,8 @@
+.checkoutBg {
+  background: url(./../public/images/svg/product-pattern.png);
+  background-repeat: repeat;
+}
+.checkoutLayout {
+  display: flex;
+  padding: 5rem 0;
+}

@@ -20,6 +20,10 @@
   box-shadow: var(--shadow-primary);
   transition: all 0.1s ease-in-out;
 }
+.siginLinks {
+  display: flex;
+  justify-content: space-between;
+}
 .forgetpassword {
   cursor: pointer;
 }
@@ -50,4 +54,11 @@
 }
 .rostobtn:active {
   box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);
+}
+
+@media screen and (max-width: 449px) {
+  .siginLinks {
+    flex-direction: column;
+    gap: 1rem;
+  }
 }
