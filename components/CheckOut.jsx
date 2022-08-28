@@ -323,10 +323,10 @@ const CheckOut = () => {
           )}
         </Paper>
         <Paper
-          className={styles.paperBg}
           sx={{
             width: "100%",
             padding: "2rem 2rem 5rem",
+            backgroundColor: "rgba(255, 255, 255, 0.6)",
           }}
         >
           <div className={styles.CheckOutHeader}>
@@ -346,10 +346,10 @@ const CheckOut = () => {
           </div>
         </Paper>
         <Paper
-          className={styles.paperBg}
           sx={{
             width: "100%",
             padding: "2rem 2rem 5rem",
+            backgroundColor: "rgba(255, 255, 255, 0.6)",
           }}
         >
           <div className={styles.CheckOutHeader}>
@@ -363,10 +363,10 @@ const CheckOut = () => {
           </div>
         </Paper>
         <Paper
-          className={styles.paperBg}
           sx={{
             width: "100%",
             padding: "2rem 2rem 5rem",
+            backgroundColor: "rgba(255, 255, 255, 0.6)",
           }}
         >
           <div className={styles.CheckOutHeader}>
