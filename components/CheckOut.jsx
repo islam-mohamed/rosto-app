@@ -1,7 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
+import { useRouter } from "next/router";
 import { RostoContext } from "../context/rostoContext";
 import cl from "classNames";
 import styles from "./../styles/CheckOut.module.css";
+import Link from "next/link";
 import {
   Paper,
   FormControl,
@@ -15,34 +17,100 @@ import PriceCheckIcon from "@mui/icons-material/PriceCheck";
 import DeliveryDiningIcon from "@mui/icons-material/DeliveryDining";
 import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
 
+const emailRegex =
+  /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
 const CheckOut = () => {
   const { cartItems } = useContext(RostoContext);
+  const router = useRouter();
+
+  useEffect(() => {
+    if (cartItems.length === 0) {
+      router.push("/cart");
+    }
+  }, [cartItems.length, router]);
+
   const totalPrice = cartItems.reduce((curr, item) => {
     return curr + item.price * item.quantity;
   }, 0);
 
-  const [paymentMethod, setPaymentMethod] = useState("");
-  const handlePaymentMethod = (e) => {
-    setPaymentMethod(e.target.value);
+  const [formData, setFormaData] = useState({
+    firstName: "",
+    lastName: "",
+    operator: "010",
+    mNumber: "",
+    email: "",
+    buildingNumber: "",
+    floorNumber: "",
+    flatNumber: "",
+    streetName: "",
+    city: "Cairo",
+    country: "Egypt",
+    deliveryNotes: "",
+    paymentMethod: "Cash",
+    cardNumber: "",
+    expMonth: "01",
+    expYear: "2022",
+    CVV: "",
+  });
+  const handleInputData = (e) => {
+    const { name, value } = e.target;
+    setFormaData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
+
+  const [formValidity, setFormValidity] = useState({
+    firstName: true,
+    lastName: true,
+    mobile: true,
+    email: true,
+    cardNumber: true,
+    CVV: true,
+  });
+
+  const handleBlur = (e) => {
+    const { value, name } = e.target;
+
+    const checkValidity = (reg) => {
+      if (value.match(reg)) {
+        setFormValidity((prevValidity) => ({
+          ...prevValidity,
+          [name]: true,
+        }));
+      } else {
+        setFormValidity((prevValidity) => ({
+          ...prevValidity,
+          [name]: false,
+        }));
+      }
+    };
+
+    if (name === "firstName" || name === "lastName") {
+      const reg = "^[[a-zA-Z]{3,16}$";
+      checkValidity(reg);
+    }
+    if (name === "mNumber") {
+      const reg = "^[[0-9]{8}$";
+      checkValidity(reg);
+    }
+    if (name === "email") {
+      checkValidity(emailRegex);
+    }
+    if (name === "cardNumber") {
+      const reg = "^[[0-9]{16}$";
+      checkValidity(reg);
+    }
+    if (name === "CVV") {
+      const reg = "^[[0-9]{3}$";
+      checkValidity(reg);
+    }
   };
 
   const checkoutSubmit = (e) => {
     e.preventDefault();
   };
-
-  const [formaData, setFormaData] = useState({
-    firstName: "",
-    lastName: "",
-    mobil: "",
-    firstName: "",
-    buildingNumber: "",
-    floorNumber: "",
-    flatNumber: "",
-    streetName: "",
-    city: "",
-    country: "",
-    deliveryNotes: "",
-  });
 
   return (
     <div className={styles.checkout}>
@@ -60,7 +128,9 @@ const CheckOut = () => {
               <p>Have An Account?</p>
               <span> Sign in to view saved address.</span>
             </div>
-            <p className={styles.haveAccountbtn}> Sign In </p>
+            <Link href="/signin">
+              <p className={styles.haveAccountbtn}> Sign In </p>
+            </Link>
           </div>
         </div>
         <div className={styles.deliveryAddress}>
@@ -73,54 +143,147 @@ const CheckOut = () => {
             <input
               type="text"
               placeholder="First Name*"
-              name="fname"
+              name="firstName"
+              value={formData.firstName}
               required
               pattern="^[[a-zA-Z]{3,16}$"
+              onBlur={handleBlur}
+              onChange={handleInputData}
             />
-            {
-              //   <span>
-              //   Username must contain only letters and must be between 3 and 16
-              //   characters long.
-              // </span>
-            }
+            {formValidity.firstName === false ? (
+              <span>
+                Username must contain only letters and must be between 3 and 16
+                characters long.
+              </span>
+            ) : (
+              ""
+            )}
 
             <input
               type="text"
               placeholder="Last Name*"
-              name="lname"
+              name="lastName"
+              value={formData.lastName}
               required
               pattern="^[[a-zA-Z]{3,16}$"
+              onBlur={handleBlur}
+              onChange={handleInputData}
             />
+            {formValidity.lastName === false ? (
+              <span>
+                Username must contain only letters and must be between 3 and 16
+                characters long.
+              </span>
+            ) : (
+              ""
+            )}
             <div className={styles.mobileNumber}>
-              <select name="operator" id="operator">
-                <option value="---">---Choose Mobile Operator---</option>
+              <label htmlFor="operator"> Mobile</label>
+              <select
+                name="operator"
+                value={formData.operator}
+                id="operator"
+                required
+                onChange={handleInputData}
+              >
                 <option value="010">010</option>
                 <option value="011">011</option>
                 <option value="012">012</option>
                 <option value="015">014</option>
                 <option value="015">015</option>
               </select>
-              <input type="number" placeholder=" Number*" name="mobile" />
+              <input
+                style={{
+                  width: "100%",
+                }}
+                type="text"
+                placeholder=" 8 Numbers*"
+                name="mNumber"
+                value={formData.mNumber}
+                required
+                pattern="^[[0-9]{8}$"
+                onBlur={handleBlur}
+                onChange={handleInputData}
+              />
             </div>
-            <input type="email" placeholder="Email*" name="email" required />
+            {formValidity.mNumber === false ? (
+              <span>Please enter 8 numbers followed your cell operator.</span>
+            ) : (
+              ""
+            )}
+            <input
+              type="email"
+              placeholder="Email*"
+              name="email"
+              required
+              pattern={emailRegex}
+              onBlur={handleBlur}
+              onChange={handleInputData}
+            />
+            {formValidity.email === false ? (
+              <span>
+                Please enter valid email address such as name@unknown.com.
+              </span>
+            ) : (
+              ""
+            )}
             <div className={styles.building}>
-              <input type="text" placeholder="Building Number*" name="lname" />
-              <input type="text" placeholder="Floor Number*" name="lname" />
-              <input type="text" placeholder="Flat Number*" name="lname" />
+              <input
+                type="text"
+                placeholder="Building Number*"
+                name="buildingNumber"
+                value={formValidity.buildingNumber}
+                onChange={handleInputData}
+              />
+              <input
+                type="text"
+                placeholder="Floor Number*"
+                name="floorNumber"
+                value={formValidity.floorNumber}
+                onChange={handleInputData}
+              />
+              <input
+                type="text"
+                placeholder="Flat Number*"
+                name="flatNumber"
+                value={formValidity.flatNumber}
+                onChange={handleInputData}
+              />
             </div>
-            <input type="text" placeholder="Street Name*" name="lname" />
+            <input
+              type="text"
+              placeholder="Street Name*"
+              name="streetName"
+              value={formValidity.streetName}
+              onChange={handleInputData}
+            />
 
             <label htmlFor="city">Choose City:</label>
-            <select name="city" id="city">
+            <select
+              name="city"
+              id="city"
+              value={formValidity.city}
+              onChange={handleInputData}
+            >
               <option value="Cairo">Cairo</option>
               <option value="Giza">Giza</option>
               <option value="Alexandria">Alexandria</option>
             </select>
             <label htmlFor="egypt">Choose Country:</label>
-            <select name="egypt" id="egypt">
+            <select
+              name="country"
+              id="egypt"
+              value={formValidity.country}
+              onChange={handleInputData}
+            >
               <option value="Egypt">Egypt</option>
             </select>
-            <textarea placeholder="Delivery instructions" />
+            <textarea
+              placeholder="Delivery instructions"
+              name="deliveryNotes"
+              value={formValidity.deliveyNotes}
+              onChange={handleInputData}
+            />
           </form>
         </div>
       </Paper>
@@ -219,9 +382,9 @@ const CheckOut = () => {
           <div className={styles.paymentMethods}>
             <FormControl>
               <RadioGroup
-                name="payment-method"
-                value={paymentMethod}
-                onChange={handlePaymentMethod}
+                name="paymentMethod"
+                defaultValue="cash"
+                onChange={handleInputData}
               >
                 <FormControlLabel
                   componentsProps={{
@@ -266,25 +429,33 @@ const CheckOut = () => {
               </RadioGroup>
             </FormControl>
           </div>
-          {paymentMethod === "card" ? (
+          {formData.paymentMethod === "card" ? (
             <div className={styles.creditCardPayment}>
               <input
                 type="text"
-                placeholder="Name On Card"
-                name="nameOnCard"
-                required
-              />
-              <input
-                type="text"
-                inputMode="number"
                 placeholder="0000 0000 0000 0000"
-                name="cardNumber"
                 required
+                pattern="^[[0-9]{16}$"
+                name="cardNumber"
+                value={formData.cardNumber}
+                onBlur={handleBlur}
+                onChange={handleInputData}
               />
+              {formValidity.cardNumber === false ? (
+                <span>
+                  Please enter the 16 numbers on your card without spaces.
+                </span>
+              ) : (
+                ""
+              )}
 
               <div className={styles.expiration}>
-                <select name="month" id="month">
-                  <option value="--">--Month--</option>
+                <select
+                  name="expMonth"
+                  value={formData.expMonth}
+                  onBlur={handleBlur}
+                  onChange={handleInputData}
+                >
                   <option value="01">01</option>
                   <option value="02">02</option>
                   <option value="03">03</option>
@@ -298,8 +469,11 @@ const CheckOut = () => {
                   <option value="11">11</option>
                   <option value="12">12</option>
                 </select>
-                <select name="year" id="year">
-                  <option value="--">--Year--</option>
+                <select
+                  name="expYear"
+                  value={formData.expYear}
+                  onChange={handleInputData}
+                >
                   <option value="2022">2022</option>
                   <option value="2023">2023</option>
                   <option value="2024">2024</option>
@@ -314,10 +488,22 @@ const CheckOut = () => {
                   type="text"
                   inputMode="number"
                   placeholder="CVV"
-                  name="cvv"
                   required
+                  pattern="^[[0-9]{3}$"
+                  name="CVV"
+                  value={formData.CVV}
+                  onBlur={handleBlur}
+                  onChange={handleInputData}
                 />
               </div>
+              {formValidity.CVV === false ? (
+                <span>
+                  Please enter the 3 numbers on the back of your card without
+                  spaces.
+                </span>
+              ) : (
+                ""
+              )}
             </div>
           ) : (
             ""
