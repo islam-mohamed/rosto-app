@@ -68,7 +68,7 @@ const CheckOut = () => {
     cardNumber: true,
     CVV: true,
   });
-  console.log(formValidity);
+
   const handleBlur = (e) => {
     const { value, name } = e.target;
 
