@@ -1,7 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { useRouter } from "next/router";
 import { RostoContext } from "../context/rostoContext";
-import cl from "classNames";
 import styles from "./../styles/CheckOut.module.css";
 import Link from "next/link";
 import {
@@ -115,7 +114,7 @@ const CheckOut = () => {
   return (
     <div className={styles.checkout}>
       <Paper
-        className={cl(styles.paperBg, styles.paperCh)}
+        className={[styles.paperBg, styles.paperCh]}
         sx={{ padding: "2rem 2rem 5rem" }}
       >
         <div className={styles.CheckOutHeader}>
@@ -289,7 +288,7 @@ const CheckOut = () => {
       </Paper>
       <div className={styles.payment}>
         <Paper
-          className={cl(styles.paperBg, styles.overflow)}
+          className={[styles.paperBg, styles.overflow]}
           sx={{
             width: "100%",
             height: "30%",
@@ -303,7 +302,7 @@ const CheckOut = () => {
             </div>
           </div>
           {cartItems.map((item) => (
-            <div className={styles.ordersummary} key={item.id}>
+            <div className={styles.orderSummary} key={item.id}>
               <p>{item.quantity} x</p>
               <p>
                 {item.name}
@@ -315,12 +314,7 @@ const CheckOut = () => {
             </div>
           ))}
           {totalPrice > 0 && (
-            <h2
-              className={cl(
-                styles.totalPriceTitle,
-                styles.ordersummaryTotalPrice
-              )}
-            >
+            <h2 className={[styles.orderSummaryTotalPrice]}>
               Total Price: EGP{" "}
               <span className={styles.totalPrice}>{totalPrice}</span>
             </h2>
