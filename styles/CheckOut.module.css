@@ -1,11 +1,13 @@
 .paperBg {
   background-color: rgba(255, 255, 255, 0.6);
 }
-.overflow {
-  overflow-y: auto;
-}
 .paperCh {
   width: 65%;
+}
+.overflow {
+  width: 100%;
+  height: 20%;
+  overflow-y: auto;
 }
 .checkout {
   width: 100%;
@@ -93,7 +95,7 @@
   border-radius: 0.5rem;
 }
 .deliveryAddress textarea {
-  height: 36rem;
+  height: 25rem;
 }
 .deliveryAddress input:focus {
   box-shadow: var(--shadow-primary);

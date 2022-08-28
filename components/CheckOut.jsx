@@ -114,8 +114,11 @@ const CheckOut = () => {
   return (
     <div className={styles.checkout}>
       <Paper
-        className={[styles.paperBg, styles.paperCh]}
-        sx={{ padding: "2rem 2rem 5rem" }}
+        className={styles.paperCh}
+        sx={{
+          padding: "2rem 2rem 5rem",
+          backgroundColor: "rgba(255, 255, 255, 0.6)",
+        }}
       >
         <div className={styles.CheckOutHeader}>
           <div className={styles.headerLogo}>
@@ -288,11 +291,10 @@ const CheckOut = () => {
       </Paper>
       <div className={styles.payment}>
         <Paper
-          className={[styles.paperBg, styles.overflow]}
+          className={styles.overflow}
           sx={{
-            width: "100%",
-            height: "30%",
             padding: "2rem 2rem 5rem",
+            backgroundColor: "rgba(255, 255, 255, 0.6)",
           }}
         >
           <div className={styles.CheckOutHeader}>
