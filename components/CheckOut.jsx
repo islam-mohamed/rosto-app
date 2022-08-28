@@ -17,7 +17,7 @@ import DeliveryDiningIcon from "@mui/icons-material/DeliveryDining";
 import PointOfSaleIcon from "@mui/icons-material/PointOfSale";
 
 const emailRegex =
-  /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)*$";
 
 const CheckOut = () => {
   const { cartItems } = useContext(RostoContext);
@@ -68,7 +68,7 @@ const CheckOut = () => {
     cardNumber: true,
     CVV: true,
   });
-
+  console.log(formValidity);
   const handleBlur = (e) => {
     const { value, name } = e.target;
 
