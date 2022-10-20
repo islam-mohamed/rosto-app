@@ -1,10 +1,7 @@
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useReducer, useEffect, useState } from "react";
 
 const RostoContext = createContext();
 
-const defaultCartItems = {
-  cartItems: [],
-};
 const cartReducer = (state, action) => {
   const existingItemIndex = state.cartItems.findIndex(
     (item) => item.id === action.item.id
@@ -66,6 +63,17 @@ const cartReducer = (state, action) => {
 };
 
 const RostoContextProvider = (props) => {
+  const [localCart, setLocalCart] = useState(
+    (typeof window !== "undefined" &&
+      JSON.parse(localStorage.getItem("cart")) !== undefined &&
+      JSON.parse(localStorage.getItem("cart"))) ||
+      []
+  );
+  console.log(localCart);
+
+  const defaultCartItems = {
+    cartItems: localCart,
+  };
   const [cartState, dispatchCartAction] = useReducer(
     cartReducer,
     defaultCartItems
@@ -95,6 +103,10 @@ const RostoContextProvider = (props) => {
     increaseItemCount: increaseItemCount,
     removeFromCart: removeFromCartHandler,
   };
+  useEffect(() => {
+    window.localStorage.setItem("cart", JSON.stringify(cartState.cartItems));
+  }, [cartState.cartItems]);
+
   return (
     <RostoContext.Provider value={INITIAL_STATE}>
       {props.children}
