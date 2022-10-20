@@ -69,7 +69,6 @@ const RostoContextProvider = (props) => {
       JSON.parse(localStorage.getItem("cart"))) ||
       []
   );
-  console.log(localCart);
 
   const defaultCartItems = {
     cartItems: localCart,
